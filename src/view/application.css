@@ -1,0 +1,18 @@
+.root{
+    -fx-background-image: url("/model/resources/background.png");
+    -fx-background-repeat: stretch;   
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+}
+
+.label .text{
+    -fx-stroke: magenta;
+    -fx-stroke-width: 0.1px;
+}
+
+#btn_return {
+	-fx-background-image: url("/model/resources/returnIcon.png");
+	-fx-background-size: 20px;
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: 30%;
+}
