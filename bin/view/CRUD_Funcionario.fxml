@@ -19,7 +19,7 @@
           <TableColumn minWidth="0.0" prefWidth="183.0" text="Código" />
         </columns>
       </TableView>
-      <TextField layoutX="448.0" layoutY="115.0" prefHeight="25.0" prefWidth="499.0" />
+      <TextField layoutX="456.0" layoutY="115.0" prefHeight="25.0" prefWidth="499.0" />
       <ImageView fitHeight="23.0" fitWidth="35.0" layoutX="425.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../bin/model/resources/searchIcon.jpg" />
@@ -89,7 +89,7 @@
       </RadioButton>
       <Button fx:id="btn_return" layoutX="914.0" layoutY="897.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="322.0" text="Retornar">
          <font>
-            <Font size="13.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
    </children>

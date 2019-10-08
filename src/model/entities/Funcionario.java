@@ -1,6 +1,7 @@
 package model.entities;
 
 public class Funcionario extends Pessoa {
+	
 	private Integer codFuncionario;
 
 	public Funcionario() {
@@ -8,8 +9,9 @@ public class Funcionario extends Pessoa {
 	}
 
 	public Funcionario(String nome, String cpf, String email, Integer idade, String endereco, String cep,
-			String celular, String telefone) {
+			String celular, String telefone, Integer codFuncionario) {
 		super(nome, cpf, email, idade, endereco, cep, celular, telefone);
+		this.codFuncionario = codFuncionario;
 	}
 
 	public Integer getCodFuncionario() {
