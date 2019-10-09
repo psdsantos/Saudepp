@@ -8,16 +8,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
 public class CRUD_Funcionario implements Initializable {
 
 	@FXML
 	private AnchorPane funcionarioPane;
+	private RadioButton radioButtonAtendente;
+	private RadioButton radioButtonMedico;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		ToggleGroup group = new ToggleGroup();
+		radioButtonMedico.setToggleGroup(group);
+	    radioButtonAtendente.setToggleGroup(group);
 	}
 	
 	@FXML
