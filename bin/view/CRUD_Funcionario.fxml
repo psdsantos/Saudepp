@@ -23,11 +23,16 @@
           <TableColumn minWidth="0.0" prefWidth="183.0" text="Código" />
         </columns>
       </TableView>
+<<<<<<< HEAD
       <TextField layoutX="456.0" layoutY="109.0" prefHeight="25.0" prefWidth="499.0">
          <font>
             <Font size="16.0" />
          </font></TextField>
       <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="425.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+=======
+      <TextField layoutX="456.0" layoutY="115.0" prefHeight="25.0" prefWidth="499.0" />
+      <ImageView fitHeight="23.0" fitWidth="35.0" layoutX="425.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+>>>>>>> 3cfde38b1de0cc9e89432816587763f7cbfd8c95
          <image>
             <Image url="@../../bin/model/resources/searchIcon.jpg" />
          </image>
@@ -115,7 +120,11 @@
       </TextField>
       <TextField disable="true" layoutX="92.0" layoutY="752.0" prefHeight="25.0" prefWidth="261.0">
          <font>
+<<<<<<< HEAD
             <Font size="15.0" />
+=======
+            <Font name="System Bold" size="15.0" />
+>>>>>>> 3cfde38b1de0cc9e89432816587763f7cbfd8c95
          </font>
       </TextField>
    </children>
