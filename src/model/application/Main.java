@@ -18,7 +18,7 @@ public class Main extends Application {
 			AnchorPane root = new AnchorPane();
 			
 			URL fxmlUrl;
-			fxmlUrl = Paths.get("src/view/CRUD_funcionario.fxml").toUri().toURL();
+			fxmlUrl = Paths.get("src/view/Administrador.fxml").toUri().toURL();
 			root = FXMLLoader.<AnchorPane>load(fxmlUrl);
 			
 			Scene scene = new Scene(root);
@@ -26,6 +26,7 @@ public class Main extends Application {
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Saúde++");
+			primaryStage.setResizable(false);
 			primaryStage.getIcons().add(new Image("model/resources/saudeIcon.png"));
 			primaryStage.show();
 			
