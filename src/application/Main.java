@@ -1,4 +1,4 @@
-package model.application;
+package application;
 
 import java.net.URL;
 import java.nio.file.Paths;
@@ -25,7 +25,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("/view/application.css").toExternalForm());
 			
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Saúde++");
+			primaryStage.setTitle("Saude++");
 			primaryStage.setResizable(false);
 			primaryStage.getIcons().add(new Image("model/resources/saudeIcon.png"));
 			primaryStage.show();

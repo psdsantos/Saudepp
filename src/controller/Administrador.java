@@ -33,9 +33,8 @@ public class Administrador implements Initializable {
 	        Scene scene = new Scene(fxmlLoader.load(), 1250, 950);
 	        Stage stage = new Stage();
 	        scene.getStylesheets().add(getClass().getResource("/view/application.css").toExternalForm());
-	        stage.setTitle("New Window");
 	        stage.setScene(scene);
-	        stage.setTitle("Saúde++");
+	        stage.setTitle("Saude++");
 			stage.setResizable(false);
 			stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
 	        stage.show();
