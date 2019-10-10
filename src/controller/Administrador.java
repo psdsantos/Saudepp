@@ -8,12 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 public class Administrador implements Initializable {
 	@FXML
@@ -27,18 +22,10 @@ public class Administrador implements Initializable {
 	@FXML
 	private void loadCRUD_FuncionarioView(ActionEvent event) {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader();
-	        fxmlLoader.setLocation(getClass().getResource("/view/CRUD_Funcionario.fxml"));
+			AnchorPane pane = new AnchorPane();
+			pane = FXMLLoader.<AnchorPane>load(Paths.get("src/view/CRUD_Funcionario.fxml").toUri().toURL());
 	   
-	        Scene scene = new Scene(fxmlLoader.load(), 1250, 950);
-	        Stage stage = new Stage();
-	        scene.getStylesheets().add(getClass().getResource("/view/application.css").toExternalForm());
-	        stage.setScene(scene);
-	        stage.setTitle("Saude++");
-			stage.setResizable(false);
-			stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
-	        stage.show();
-			administradorPane.getScene().getWindow().hide();
+	        administradorPane.getChildren().setAll(pane);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

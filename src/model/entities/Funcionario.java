@@ -1,5 +1,7 @@
 package model.entities;
 
+import java.util.Date;
+
 public class Funcionario extends Pessoa {
 	
 	private Integer codFuncionario;
@@ -8,9 +10,9 @@ public class Funcionario extends Pessoa {
 		super();
 	}
 
-	public Funcionario(String nome, String cpf, String email, Integer idade, String endereco, String cep,
+	public Funcionario(String nome, String cpf, String email, Date dataNasc, String endereco, String cep,
 			String celular, String telefone, Integer codFuncionario) {
-		super(nome, cpf, email, idade, endereco, cep, celular, telefone);
+		super(nome, cpf, email, dataNasc, endereco, cep, celular, telefone);
 		this.codFuncionario = codFuncionario;
 	}
 

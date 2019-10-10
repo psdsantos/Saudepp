@@ -1,11 +1,13 @@
 package model.entities;
 
+import java.util.Date;
+
 public class Pessoa {
 	
 	private String nome;
 	private String cpf;
 	private String email;
-	private Integer idade;
+	private Date dataNasc;
 	private String endereco;
 	private String cep;
 	private String celular;
@@ -14,12 +16,12 @@ public class Pessoa {
 	public Pessoa() {
 		super();
 	}
-	public Pessoa(String nome, String cpf, String email, Integer idade, String endereco, String cep, String celular,
+	public Pessoa(String nome, String cpf, String email, Date dataNasc, String endereco, String cep, String celular,
 			String telefone) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
-		this.idade = idade;
+		this.dataNasc = dataNasc;
 		this.endereco = endereco;
 		this.cep = cep;
 		this.celular = celular;
@@ -43,11 +45,11 @@ public class Pessoa {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getIdade() {
-		return idade;
+	public Date getdataNasc() {
+		return dataNasc;
 	}
-	public void setIdade(Integer idade) {
-		this.idade = idade;
+	public void setdataNasc(Date dataNasc) {
+		this.dataNasc = dataNasc;
 	}
 	public String getEndereco() {
 		return endereco;

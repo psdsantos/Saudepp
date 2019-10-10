@@ -21,7 +21,7 @@ public class Main extends Application {
 			fxmlUrl = Paths.get("src/view/Administrador.fxml").toUri().toURL();
 			root = FXMLLoader.<AnchorPane>load(fxmlUrl);
 			
-			Scene scene = new Scene(root);
+			Scene scene = new Scene(root, 1250, 950);
 			scene.getStylesheets().add(getClass().getResource("/view/application.css").toExternalForm());
 			
 			primaryStage.setScene(scene);
@@ -29,6 +29,7 @@ public class Main extends Application {
 			primaryStage.setResizable(false);
 			primaryStage.getIcons().add(new Image("model/resources/saudeIcon.png"));
 			primaryStage.show();
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
