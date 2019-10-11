@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <Pane prefHeight="492.0" prefWidth="673.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView layoutX="171.0" layoutY="73.0" prefHeight="313.0" prefWidth="415.0">
+              <columns>
+                <TableColumn prefWidth="108.0" text="Data" />
+                <TableColumn prefWidth="174.0" text="Paciente" />
+                  <TableColumn minWidth="0.0" prefWidth="132.0" text="Médico" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
