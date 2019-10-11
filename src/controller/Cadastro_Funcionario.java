@@ -26,7 +26,8 @@ public class Cadastro_Funcionario implements Initializable {
 			BorderPane pane = new BorderPane();
 			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/CRUD_Funcionario.fxml").toUri().toURL());
 			
-			cadastroFuncionarioPane.getChildren().setAll(pane);
+			cadastroFuncionarioPane.getChildren().clear();
+			cadastroFuncionarioPane.setCenter(pane);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

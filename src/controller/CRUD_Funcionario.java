@@ -34,7 +34,8 @@ public class CRUD_Funcionario implements Initializable {
 			BorderPane pane = new BorderPane();
 			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Cadastro_Funcionario.fxml").toUri().toURL());
 			
-			funcionarioPane.getChildren().setAll(pane);
+			funcionarioPane.getChildren().clear();
+			funcionarioPane.setCenter(pane);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -48,7 +49,8 @@ public class CRUD_Funcionario implements Initializable {
 			BorderPane pane = new BorderPane();
 			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Administrador.fxml").toUri().toURL());
 			
-			funcionarioPane.getChildren().setAll(pane);
+			funcionarioPane.getChildren().clear();
+			funcionarioPane.setCenter(pane);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

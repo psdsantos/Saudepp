@@ -27,7 +27,8 @@ public class Administrador implements Initializable {
 			BorderPane pane = new BorderPane();
 			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/CRUD_Funcionario.fxml").toUri().toURL());
 			
-	        administradorPane.getChildren().setAll(pane);
+			administradorPane.getChildren().clear();
+			administradorPane.setCenter(pane);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -39,7 +40,8 @@ public class Administrador implements Initializable {
 			BorderPane pane = new BorderPane();
 			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Login.fxml").toUri().toURL());
 			
-	        administradorPane.getChildren().setAll(pane);
+			administradorPane.getChildren().clear();
+			administradorPane.setCenter(pane);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
