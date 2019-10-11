@@ -8,11 +8,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 public class Cadastro_Funcionario implements Initializable {
 	@FXML
-	private AnchorPane cadastroFuncionarioPane;
+	private BorderPane cadastroFuncionarioPane;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -23,8 +23,8 @@ public class Cadastro_Funcionario implements Initializable {
 	private void loadCRUD_FuncionarioView(ActionEvent event) {
 		try {
 			
-			AnchorPane pane = new AnchorPane();
-			pane = FXMLLoader.<AnchorPane>load(Paths.get("src/view/CRUD_Funcionario.fxml").toUri().toURL());
+			BorderPane pane = new BorderPane();
+			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/CRUD_Funcionario.fxml").toUri().toURL());
 			
 			cadastroFuncionarioPane.getChildren().setAll(pane);
 			
