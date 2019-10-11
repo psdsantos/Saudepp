@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cadastro_Funcionario">
+<BorderPane fx:id="cadastroFuncionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cadastro_Funcionario">
    <center>
-      <AnchorPane fx:id="cadastroFuncionarioPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="950.0" prefWidth="1250.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="950.0" prefWidth="1250.0">
          <children>
             <TextField layoutX="44.0" layoutY="157.0" promptText="João Maria José">
                <font>

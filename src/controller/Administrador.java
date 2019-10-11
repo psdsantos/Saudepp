@@ -32,4 +32,16 @@ public class Administrador implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+	@FXML
+	private void loadLoginView(ActionEvent event) {
+		try {
+			BorderPane pane = new BorderPane();
+			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Login.fxml").toUri().toURL());
+			
+	        administradorPane.getChildren().setAll(pane);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Funcionario">
+<BorderPane fx:id="funcionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Funcionario">
    <center>
-      <AnchorPane fx:id="funcionarioPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="950.0" prefWidth="1250.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="950.0" prefWidth="1250.0">
          <children>
             <Button layoutX="25.0" layoutY="207.0" mnemonicParsing="false" onAction="#loadCadastro_FuncionarioView" prefHeight="25.0" prefWidth="236.0" text="Prosseguir">
                <font>

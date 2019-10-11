@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane fx:id="LoginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="344.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Login">
+   <right>
+      <ImageView fitHeight="344.0" fitWidth="517.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../model/resources/loginImage.jpg" />
+         </image>
+      </ImageView>
+   </right>
+   <left>
+      <Pane prefHeight="300.0" prefWidth="362.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../model/resources/saudeLogo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="106.0" text="Nome de usuário">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="181.0" text="Senha">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+            </Label>
+            <PasswordField layoutX="14.0" layoutY="215.0" prefHeight="31.0" prefWidth="234.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </PasswordField>
+            <TextField layoutX="14.0" layoutY="138.0" prefHeight="31.0" prefWidth="236.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Button layoutX="17.0" layoutY="271.0" mnemonicParsing="false" onAction="#loadAdministradorView" text="Login">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="123.0" layoutY="281.0" text="*pode logar sem nada " />
+         </children>
+      </Pane>
+   </left>
+</BorderPane>

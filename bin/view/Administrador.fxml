@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Administrador">
+<BorderPane fx:id="administradorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Administrador">
    <top>
       <Label prefHeight="40.0" prefWidth="212.0" text="Administrador" BorderPane.alignment="CENTER_LEFT">
          <font>
@@ -35,7 +34,7 @@
                </font>
             </Button>
             <Region prefHeight="30.0" prefWidth="212.0" />
-            <Button mnemonicParsing="false" onAction="#loadCRUD_FuncionarioView" prefHeight="60.0" prefWidth="212.0" text="Sign out">
+            <Button mnemonicParsing="false" onAction="#loadLoginView" prefHeight="60.0" prefWidth="212.0" text="Sign out">
                <font>
                   <Font size="14.0" />
                </font>

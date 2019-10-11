@@ -20,7 +20,7 @@ public class Main extends Application {
 			BorderPane root = new BorderPane();
 			
 			URL fxmlUrl;
-			fxmlUrl = Paths.get("src/view/Administrador.fxml").toUri().toURL();
+			fxmlUrl = Paths.get("src/view/Login.fxml").toUri().toURL();
 			root = FXMLLoader.<BorderPane>load(fxmlUrl);
 			
 			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
