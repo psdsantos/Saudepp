@@ -6,6 +6,10 @@
     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
 }
 
+#transparentBG {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
 #btn_return {
 	-fx-background-image: url("/model/resources/returnIcon.png");
 	-fx-background-size: 20px;

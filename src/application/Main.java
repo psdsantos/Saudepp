@@ -27,7 +27,7 @@ public class Main extends Application {
 			int width = gd.getDisplayMode().getWidth();
 			int height = gd.getDisplayMode().getHeight();
 			
-			Scene scene = new Scene(root, 0.9*width, 0.9*height);
+			Scene scene = new Scene(root, 0.85*width, 0.85*height);
 			scene.getStylesheets().add(getClass().getResource("/view/application.css").toExternalForm());
 			
 			primaryStage.setScene(scene);

@@ -29,6 +29,8 @@ public class Administrador implements Initializable {
 			
 			administradorPane.getChildren().clear();
 			administradorPane.setCenter(pane);
+			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
