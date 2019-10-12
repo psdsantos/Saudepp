@@ -1,18 +1,20 @@
 package controller;
 
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class Cadastro_Funcionario implements Initializable {
 	@FXML
 	private BorderPane cadastroFuncionarioPane;
+	@FXML
+	private Button closeButton;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -20,14 +22,11 @@ public class Cadastro_Funcionario implements Initializable {
 	}
 	
 	@FXML
-	private void loadCRUD_FuncionarioView(ActionEvent event) {
+	private void closeView(ActionEvent event) {
 		try {
 			
-			BorderPane pane = new BorderPane();
-			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/CRUD_Funcionario.fxml").toUri().toURL());
-			
-			cadastroFuncionarioPane.getChildren().clear();
-			cadastroFuncionarioPane.setCenter(pane);
+		    Stage stage = (Stage) closeButton.getScene().getWindow();
+		    stage.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

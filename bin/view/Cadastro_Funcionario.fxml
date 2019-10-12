@@ -5,15 +5,17 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="cadastroFuncionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cadastro_Funcionario">
    <center>
-      <ScrollPane BorderPane.alignment="CENTER">
+      <ScrollPane fx:id="transparentBG" BorderPane.alignment="CENTER">
          <content>
             <VBox fx:id="transparentBG" fillWidth="false">
                <children>
@@ -21,8 +23,11 @@
                      <font>
                         <Font name="Impact" size="28.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                   </Label>
-                  <Line endX="684.0" startX="1.0">
+                  <Line endX="350.0" startX="1.0">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
@@ -41,6 +46,9 @@
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Label>
                   <TextField>
                      <font>
@@ -51,6 +59,9 @@
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Label>
                   <TextField>
                      <font>
@@ -61,8 +72,11 @@
                      <font>
                         <Font name="Impact" size="28.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
                   </Label>
-                  <Line endX="684.0" startX="1.0">
+                  <Line endX="350.0" startX="1.0">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
@@ -72,15 +86,18 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="37.0" prefWidth="684.0">
+                  <TextArea prefHeight="74.0" prefWidth="441.0" wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>
-                  </TextField>
+                  </TextArea>
                   <Label text="CEP">
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Label>
                   <TextField>
                      <font>
@@ -91,6 +108,9 @@
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Label>
                   <TextField>
                      <font>
@@ -101,8 +121,15 @@
                      <font>
                         <Font name="Impact" size="28.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
                   </Label>
-                  <Line endX="684.0" startX="1.0" />
+                  <Line endX="350.0" startX="1.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Line>
                   <Label text="Telefone">
                      <font>
                         <Font size="18.0" />
@@ -117,6 +144,9 @@
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Label>
                   <TextField prefHeight="37.0" prefWidth="441.0">
                      <font>
@@ -127,8 +157,14 @@
                      <font>
                         <Font name="Impact" size="28.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
                   </Label>
-                  <Line endX="350.0" startX="1.0" />
+                  <Line endX="350.0" startX="1.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></Line>
                   <RadioButton fx:id="radioButtonMedico1" mnemonicParsing="false" prefHeight="27.0" prefWidth="134.0" text="Médico">
                      <font>
                         <Font size="18.0" />
@@ -138,15 +174,39 @@
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </RadioButton>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="108.0" text="Salvar">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
+                  <HBox prefHeight="37.0" prefWidth="445.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" text="Salvar">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeView" prefHeight="37.0" prefWidth="150.0" text="Cancelar">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
                </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
             </VBox>
          </content>
+         <BorderPane.margin>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </BorderPane.margin>
       </ScrollPane>
    </center>
 </BorderPane>

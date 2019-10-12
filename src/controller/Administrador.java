@@ -48,4 +48,17 @@ public class Administrador implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+	@FXML
+	private void loadAgendaView(ActionEvent event) {
+		try {
+			BorderPane pane = new BorderPane();
+			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Agenda.fxml").toUri().toURL());
+			
+			administradorPane.getChildren().clear();
+			administradorPane.setCenter(pane);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

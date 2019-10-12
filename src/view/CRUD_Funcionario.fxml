@@ -18,81 +18,97 @@
                <font>
                   <Font name="Impact" size="28.0" />
                </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </Label>
-            <Label text="Nome">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextField disable="true" prefHeight="25.0" prefWidth="261.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextField>
-            <Label text="CPF">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextField disable="true" prefHeight="25.0" prefWidth="261.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextField>
             <Button mnemonicParsing="false" onAction="#loadCadastro_FuncionarioView" prefHeight="25.0" prefWidth="236.0" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Button>
             <Label prefWidth="314.0" text="Atualizar funcionário">
                <font>
                   <Font name="Impact" size="28.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
             </Label>
             <Label text="Selecione na tabela o funcionário a ser atualizado" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Label>
             <Label text="Nome">
                <font>
                   <Font size="18.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Label>
             <TextField disable="true" prefHeight="25.0" prefWidth="261.0">
                <font>
                   <Font size="15.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </TextField>
             <Label text="CPF">
                <font>
                   <Font size="18.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Label>
             <TextField disable="true" prefHeight="25.0" prefWidth="261.0">
                <font>
                   <Font size="15.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </TextField>
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="242.0" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Button>
             <Label prefHeight="34.0" prefWidth="314.0" text="Deletar funcionário">
                <font>
                   <Font name="Impact" size="28.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
             </Label>
             <Label text="Selecione na tabela o funcionário a ser deletado" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Label>
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Deletar">
                <font>
                   <Font size="16.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Button>
          </children>
          <BorderPane.margin>
@@ -116,7 +132,7 @@
                   <Font size="16.0" />
                </font>
                <VBox.margin>
-                  <Insets />
+                  <Insets top="10.0" />
                </VBox.margin>
             </TextField>
             <TableView>
@@ -125,15 +141,15 @@
                   <TableColumn minWidth="0.0" prefWidth="183.0" text="Código" />
                </columns>
                <VBox.margin>
-                  <Insets />
+                  <Insets top="10.0" />
                </VBox.margin>
             </TableView>
-            <Button fx:id="btn_return1" mnemonicParsing="false" onAction="#loadAdministradorView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
+            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAdministradorView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
                <VBox.margin>
-                  <Insets />
+                  <Insets top="10.0" />
                </VBox.margin>
             </Button>
          </children>
