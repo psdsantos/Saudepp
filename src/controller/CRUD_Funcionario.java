@@ -43,7 +43,6 @@ public class CRUD_Funcionario implements Initializable {
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
             stage.setScene(new Scene(root, 505, WindowsParam.getHeight()));
             stage.setResizable(false);
-   
             stage.show();
 			
 		} catch (Exception e) {

@@ -17,7 +17,7 @@
    <center>
       <ScrollPane fx:id="transparentBG" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="transparentBG" fillWidth="false">
+            <VBox fx:id="formulario" fillWidth="false" stylesheets="@application.css">
                <children>
                   <Label text="Dados pessoais">
                      <font>
