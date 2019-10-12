@@ -1,6 +1,5 @@
 package application;
 
-import java.net.URL;
 import java.nio.file.Paths;
 
 import javafx.application.Application;
@@ -18,11 +17,7 @@ public class Main extends Application {
 		try {
 			BorderPane root = new BorderPane();
 			
-			URL fxmlUrl;
-			fxmlUrl = Paths.get("src/view/Login.fxml").toUri().toURL();
-			root = FXMLLoader.<BorderPane>load(fxmlUrl);
-			
-			
+			root.setCenter(FXMLLoader.<BorderPane>load(Paths.get("src/view/Login.fxml").toUri().toURL()));
 			
 			
 			Scene scene = new Scene(root, WindowsParam.getWidth(), WindowsParam.getHeight());

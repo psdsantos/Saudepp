@@ -22,7 +22,7 @@
    <right>
       <VBox fx:id="vbox" prefHeight="346.0" prefWidth="180.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="213.0" text="Ver agenda">
+            <Button mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="60.0" prefWidth="213.0" text="Ver agenda">
                <font>
                   <Font size="14.0" />
                </font>
@@ -40,6 +40,9 @@
                </font>
             </Button>
          </children>
+         <BorderPane.margin>
+            <Insets right="20.0" />
+         </BorderPane.margin>
       </VBox>
    </right>
 </BorderPane>
