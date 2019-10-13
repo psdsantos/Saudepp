@@ -11,3 +11,7 @@
 	-fx-background-repeat: no-repeat;
 	-fx-background-position: 30%;
 }
+
+.date-picker, .text-field {
+	-fx-font-size: 14px;
+}

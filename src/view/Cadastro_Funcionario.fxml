@@ -14,12 +14,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import src.MaskedTextField?>
 
 <BorderPane fx:id="cadastroFuncionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cadastro_Funcionario">
    <center>
-      <ScrollPane fx:id="transparentBG" BorderPane.alignment="CENTER">
+      <ScrollPane BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="formulario" fillWidth="false" stylesheets="@application.css">
+            <VBox fx:id="formulario" fillWidth="false" stylesheets="@style.css">
                <children>
                   <Label text="Dados pessoais">
                      <font>
@@ -40,9 +41,7 @@
                      </font>
                   </Label>
                   <TextField prefHeight="37.0" prefWidth="465.0" promptText="João Maria José">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
+                  
                   </TextField>
                   <Label text="CPF">
                      <font>
@@ -52,11 +51,11 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
+                  <MaskedTextField mask="###.###.###-##" plainText="">
+	                 <font>
+	                       <Font size="14.0" />
+	                 </font>
+                  </MaskedTextField>
                   <Label text="Data de nascimento">
                      <font>
                         <Font size="18.0" />
@@ -98,9 +97,7 @@
                      </VBox.margin>
                   </Label>
                   <TextField>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
+                     
                   </TextField>
                   <Label text="Celular">
                      <font>
@@ -111,9 +108,7 @@
                      </VBox.margin>
                   </Label>
                   <TextField>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
+                     
                   </TextField>
                   <Label text="Contato">
                      <font>
@@ -133,11 +128,12 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
+                  <MaskedTextField mask="(##) # ####-####" plainText="">
+	                 <font>
+	                       <Font size="14.0" />
+	                 </font>
+                  </MaskedTextField>
+                  
                   <Label text="E-mail">
                      <font>
                         <Font size="18.0" />
@@ -147,9 +143,7 @@
                      </VBox.margin>
                   </Label>
                   <TextField prefHeight="37.0" prefWidth="441.0">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
+                     
                   </TextField>
                   <Label text="Tipo de funcionário">
                      <font>
@@ -165,12 +159,12 @@
                      </VBox.margin></Line>
                   <ToggleButtonGroup selectionType="SINGLE">
                       <toggles>
-                        <RadioButton fx:id="radioButtonMedico1" mnemonicParsing="false" text="Médico">
+                        <RadioButton fx:id="radioButtonMedico" mnemonicParsing="false" text="Médico">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton fx:id="radioButtonAtendente1" mnemonicParsing="false" text="Atendente">
+                        <RadioButton fx:id="radioButtonAtendente" mnemonicParsing="false" text="Atendente">
                            <font>
                               <Font size="18.0" />
                            </font>

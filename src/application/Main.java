@@ -21,7 +21,7 @@ public class Main extends Application {
 			
 			
 			Scene scene = new Scene(root, WindowsParam.getWidth(), WindowsParam.getHeight());
-			scene.getStylesheets().add(getClass().getResource("/view/application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Saude++");

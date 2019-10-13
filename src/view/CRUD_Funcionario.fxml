@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import src.MaskedTextField?>
 
 <BorderPane fx:id="funcionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Funcionario">
    <left>
@@ -46,38 +47,19 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <Label text="Nome">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Label>
-            <TextField disable="true" prefHeight="25.0" prefWidth="261.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </TextField>
             <Label text="CPF">
                <font>
                   <Font size="18.0" />
                </font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
             </Label>
-            <TextField disable="true" prefHeight="25.0" prefWidth="261.0">
+            <MaskedTextField mask="###.###.###-##" plainText="">
                <font>
-                  <Font size="15.0" />
+                  <Font size="14.0" />
                </font>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
-            </TextField>
+            </MaskedTextField>
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="242.0" text="Prosseguir">
                <font>
                   <Font size="16.0" />
@@ -102,6 +84,22 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
+            <Label text="CPF">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <MaskedTextField mask="###.###.###-##" plainText="">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </MaskedTextField>
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Deletar">
                <font>
                   <Font size="16.0" />

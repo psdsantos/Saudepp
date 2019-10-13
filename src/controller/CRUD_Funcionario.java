@@ -20,10 +20,6 @@ public class CRUD_Funcionario implements Initializable {
 
 	@FXML
 	private BorderPane funcionarioPane;
-	@FXML
-	private RadioButton radioButtonAtendente;
-	@FXML
-	private RadioButton radioButtonMedico;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
