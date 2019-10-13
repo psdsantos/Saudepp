@@ -12,6 +12,13 @@
 	-fx-background-position: 30%;
 }
 
+#btn_delete {
+	-fx-background-image: url("/model/resources/deleteIcon.png");
+	-fx-background-size: 20px;
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: 20%;
+}
+
 .date-picker, .text-field {
 	-fx-font-size: 14px;
 }
