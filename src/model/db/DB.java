@@ -80,11 +80,18 @@ public class DB {
 		statement.close();
 	}
 	
-	public static void updateData(String table, String column, String newValue, String id) throws SQLException {
+	public static void updateData(String table, List<String> columns, List<String> newValues, String id) throws SQLException {
 		String sql;
 		Statement statement = getConnection().createStatement();
 		
-		sql = String.format("update %s set %s = '%s' where id = %s", table, column, newValue, id);
+		sql = String.format("update %s set ", table);
+		
+		for(int i = 0; i < columns.size(); i++) {
+			sql += String.format("%s = '%s,", columns.get(i), newValues.get(i));
+		}
+		
+		sql = sql.substring(0, sql.length()-1) + String.format(" where id = '%s", id);
+		
 		statement.executeUpdate(sql);
 		statement.close();
 	}
