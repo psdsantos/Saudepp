@@ -1,4 +1,4 @@
-package util;
+package model.util;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;

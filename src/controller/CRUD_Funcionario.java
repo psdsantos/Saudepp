@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import util.WindowsParam;
+import model.util.WindowsParam;
 
 public class CRUD_Funcionario implements Initializable {
 
