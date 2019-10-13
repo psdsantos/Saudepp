@@ -66,7 +66,7 @@ public class DB {
 		}
 	}
 
-	public static void incluir(String tabela, List<String> valores) throws SQLException {
+	public static void insertData(String tabela, List<String> valores) throws SQLException {
 		String sql;
 		Statement statement = getConnection().createStatement();
 		sql = String.format("insert into %s values (", tabela);
@@ -79,4 +79,23 @@ public class DB {
 		statement.executeUpdate(sql);
 		statement.close();
 	}
+	
+	public static void updateData(String table, String column, String newValue, String id) throws SQLException {
+		String sql;
+		Statement statement = getConnection().createStatement();
+		
+		sql = String.format("update %s set %s = '%s' where id = %s", table, column, newValue, id);
+		statement.executeUpdate(sql);
+		statement.close();
+	}
+	
+	public static void deleteData(String table, String id) throws SQLException {
+		String sql;
+		Statement statement = getConnection().createStatement();
+		
+		sql = String.format("delete from %s where id = '%s'", table, id);
+		statement.executeUpdate(sql);
+		statement.close();
+	}
+	
 }
