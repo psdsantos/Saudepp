@@ -12,13 +12,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import src.MaskedTextField?>
 
-<BorderPane fx:id="pacientePane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Paciente">
+<BorderPane fx:id="agendaPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Agenda">
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <Label text="Cadastrar novo paciente">
+            <Label text="Agendar nova consulta">
                <font>
                   <Font name="Impact" size="28.0" />
                </font>
@@ -26,7 +25,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#loadCadastro_PacienteView" prefHeight="25.0" prefWidth="236.0" text="Prosseguir">
+            <Button mnemonicParsing="false" onAction="#loadCadastro_ConsultaView" prefHeight="25.0" prefWidth="236.0" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
@@ -34,7 +33,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Label prefWidth="314.0" text="Atualizar paciente">
+            <Label prefWidth="314.0" text="Atualizar consulta">
                <font>
                   <Font name="Impact" size="28.0" />
                </font>
@@ -42,7 +41,7 @@
                   <Insets top="30.0" />
                </VBox.margin>
             </Label>
-            <Label text="Selecione na tabela o funcionário a ser atualizado" wrapText="true">
+            <Label text="Selecione na tabela a consulta a ser atualizada" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
@@ -50,20 +49,13 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <Label text="CPF">
+            <Label text="Paciente">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <MaskedTextField mask="###.###.###-##" plainText="">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </MaskedTextField>
-            <Button mnemonicParsing="false" onAction="#loadAtualizar_PacienteView" prefHeight="25.0" prefWidth="242.0" text="Prosseguir">
+            <TextField disable="true" editable="false" />
+            <Button mnemonicParsing="false" onAction="#loadAtualizar_ConsultaView" prefHeight="25.0" prefWidth="242.0" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
@@ -71,7 +63,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Label prefHeight="34.0" prefWidth="314.0" text="Deletar paciente">
+            <Label prefHeight="34.0" prefWidth="314.0" text="Deletar consulta">
                <font>
                   <Font name="Impact" size="28.0" />
                </font>
@@ -79,7 +71,7 @@
                   <Insets top="30.0" />
                </VBox.margin>
             </Label>
-            <Label text="Selecione na tabela o funcionário a ser deletado" wrapText="true">
+            <Label text="Selecione na tabela a consulta a ser deletada" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
@@ -87,7 +79,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <Label text="CPF">
+            <Label text="Paciente">
                <font>
                   <Font size="18.0" />
                </font>
@@ -95,14 +87,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <MaskedTextField mask="###.###.###-##" plainText="">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </MaskedTextField>
+            <TextField disable="true" editable="false" />
             <Button fx:id="btn_delete" mnemonicParsing="false" prefHeight="37.0" prefWidth="162.0" text="Deletar">
                <font>
                   <Font size="16.0" />
@@ -145,7 +130,7 @@
                   </TextField>
                </children>
             </HBox>
-            <TableView>
+            <TableView fx:id="tableFuncionario">
                <columns>
                   <TableColumn prefWidth="349.0" text="Nome" />
                   <TableColumn minWidth="0.0" prefWidth="183.0" text="Código" />
@@ -154,7 +139,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </TableView>
-            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAtendenteView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
+            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

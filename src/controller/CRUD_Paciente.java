@@ -46,6 +46,25 @@ public class CRUD_Paciente implements Initializable {
 	}
 	
 	@FXML
+	private void loadAtualizar_PacienteView(ActionEvent event) {
+		try {
+			
+			Parent root;
+			root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Paciente.fxml").toUri().toURL());
+            Stage stage = new Stage();
+            stage.setTitle("Saúde ++");
+            stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
+            stage.setScene(new Scene(root, 505, WindowsParam.getHeight()));
+            stage.setResizable(false);
+            stage.show();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	@FXML
 	private void loadAtendenteView(ActionEvent event) {
 		try {
 			

@@ -55,7 +55,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <MaskedTextField mask="###.###.###-##" plainText="">
+            <MaskedTextField disable="true" editable="false" mask="###.###.###-##" plainText="">
                <font>
                   <Font size="14.0" />
                </font>
@@ -63,7 +63,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </MaskedTextField>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="242.0" text="Prosseguir">
+            <Button mnemonicParsing="false" onAction="#loadAtualizar_FuncionarioView" prefHeight="25.0" prefWidth="242.0" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
@@ -95,7 +95,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <MaskedTextField mask="###.###.###-##" plainText="">
+            <MaskedTextField disable="true" editable="false" mask="###.###.###-##" plainText="">
                <font>
                   <Font size="14.0" />
                </font>
@@ -145,7 +145,7 @@
                   </TextField>
                </children>
             </HBox>
-            <TableView>
+            <TableView fx:id="tableFuncionario">
                <columns>
                   <TableColumn prefWidth="349.0" text="Nome" />
                   <TableColumn minWidth="0.0" prefWidth="183.0" text="Código" />

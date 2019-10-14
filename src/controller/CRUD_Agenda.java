@@ -15,7 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.util.WindowsParam;
 
-public class Agenda_Atendente implements Initializable {
+public class CRUD_Agenda implements Initializable {
 
 	@FXML
 	private BorderPane agendaPane;
@@ -27,26 +27,30 @@ public class Agenda_Atendente implements Initializable {
 	}
 	
 	@FXML
-	private void loadCRUD_AgendaView(ActionEvent event) { 
+	private void loadAtualizar_ConsultaView(ActionEvent event) {
 		try {
 			
-			BorderPane pane = new BorderPane();
-			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/CRUD_Agenda.fxml").toUri().toURL());
-			
-			agendaPane.getChildren().clear();
-			agendaPane.setCenter(pane);
+			Parent root;
+			root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Consulta.fxml").toUri().toURL());
+            Stage stage = new Stage();
+            stage.setTitle("Saúde ++");
+            stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
+            stage.setScene(new Scene(root, 505, WindowsParam.getHeight()));
+            stage.setResizable(false);
+            stage.show();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
+	
 	@FXML
-	private void loadCadastro_AtendenteView(ActionEvent event) { 
+	private void loadCadastro_ConsultaView(ActionEvent event) {
 		try {
 			
 			Parent root;
-			root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Cadastro_Atendente.fxml").toUri().toURL());
+			root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Cadastro_Consulta.fxml").toUri().toURL());
             Stage stage = new Stage();
             stage.setTitle("Saúde ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
@@ -60,11 +64,11 @@ public class Agenda_Atendente implements Initializable {
 	}
 	
 	@FXML
-	private void loadAtendenteView(ActionEvent event) { // VOLTAR
+	private void loadAgendaView(ActionEvent event) { // VOLTAR
 		try {
 			
 			BorderPane pane = new BorderPane();
-			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atendente.fxml").toUri().toURL());
+			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Agenda_Atendente.fxml").toUri().toURL());
 			
 			agendaPane.getChildren().clear();
 			agendaPane.setCenter(pane);
