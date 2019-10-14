@@ -40,7 +40,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="37.0" prefWidth="465.0" promptText="João Maria José">
+                  <TextField prefWidth="465.0" promptText="João Maria José">
                   
                   </TextField>
                   <Label text="CPF">
@@ -96,9 +96,11 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField>
-                     
-                  </TextField>
+                  <MaskedTextField mask="#####-###" plainText="">
+	                 <font>
+	                       <Font size="14.0" />
+	                 </font>
+                  </MaskedTextField>
                   <Label text="Celular">
                      <font>
                         <Font size="18.0" />
@@ -107,9 +109,11 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField>
-                     
-                  </TextField>
+                  <MaskedTextField mask="(##) 9####-####" plainText="">
+	                 <font>
+	                       <Font size="14.0" />
+	                 </font>
+                  </MaskedTextField>
                   <Label text="Contato">
                      <font>
                         <Font name="Impact" size="28.0" />
@@ -128,7 +132,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <MaskedTextField mask="(##) # ####-####" plainText="">
+                  <MaskedTextField mask="(##) ####-####" plainText="">
 	                 <font>
 	                       <Font size="14.0" />
 	                 </font>
@@ -142,8 +146,10 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField prefHeight="37.0" prefWidth="441.0">
-                     
+                  <TextField prefWidth="441.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </TextField>
                   <Label text="Tipo de funcionário">
                      <font>

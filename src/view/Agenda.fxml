@@ -80,7 +80,7 @@
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="25.0" prefWidth="189.0">
+            <TextField prefWidth="189.0">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
@@ -106,7 +106,7 @@
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="25.0" prefWidth="189.0">
+            <TextField prefWidth="189.0">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin></TextField>
