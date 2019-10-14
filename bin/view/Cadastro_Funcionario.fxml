@@ -101,19 +101,6 @@
 	                       <Font size="14.0" />
 	                 </font>
                   </MaskedTextField>
-                  <Label text="Celular">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <MaskedTextField mask="(##) 9####-####" plainText="">
-	                 <font>
-	                       <Font size="14.0" />
-	                 </font>
-                  </MaskedTextField>
                   <Label text="Contato">
                      <font>
                         <Font name="Impact" size="28.0" />
@@ -127,10 +114,26 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Line>
+                  <Label text="Celular">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <MaskedTextField mask="(##) 9####-####" plainText="">
+	                 <font>
+	                       <Font size="14.0" />
+	                 </font>
+                  </MaskedTextField>
                   <Label text="Telefone">
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Label>
                   <MaskedTextField mask="(##) ####-####" plainText="">
 	                 <font>
