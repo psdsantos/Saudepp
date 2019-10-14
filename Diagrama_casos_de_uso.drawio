@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2019-10-14T16:58:25.159Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36" etag="SMvVTqJaPOKmYVy-PWA0" version="12.1.1" type="github" pages="1">
+<mxfile host="www.draw.io" modified="2019-10-14T16:58:37.085Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36" etag="B0gsSdQgA9pXd6wKc8k3" version="12.1.1" type="github" pages="1">
   <diagram id="mlRiu6yeL7toF48WyWGI" name="Page-1">
     <mxGraphModel dx="1656" dy="918" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -149,46 +149,6 @@
         </mxCell>
         <mxCell id="8QX9e3UgTYVbw0vNIzcA-69" value="Fazer login" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0D0D0D;fontColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="420.5" y="420" width="120" height="80" as="geometry"/>
-        </mxCell>
-        <mxCell id="--25wSJaByMxKrLfPUze-1" value="Cadastrar paciente" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0D0D0D;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="245" y="600" width="120" height="80" as="geometry"/>
-        </mxCell>
-        <mxCell id="--25wSJaByMxKrLfPUze-2" value="Deletar paciente" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0D0D0D;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="245" y="690" width="120" height="80" as="geometry"/>
-        </mxCell>
-        <mxCell id="--25wSJaByMxKrLfPUze-3" value="Atualizar paciente" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0D0D0D;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="245" y="780" width="120" height="80" as="geometry"/>
-        </mxCell>
-        <mxCell id="--25wSJaByMxKrLfPUze-8" value="Listar pacientes" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0D0D0D;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="245" y="874.5" width="120" height="80" as="geometry"/>
-        </mxCell>
-        <mxCell id="--25wSJaByMxKrLfPUze-9" value="" style="endArrow=classic;html=1;fontColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="--25wSJaByMxKrLfPUze-1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="100" y="220" as="sourcePoint"/>
-            <mxPoint x="255" y="125" as="targetPoint"/>
-            <Array as="points"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="--25wSJaByMxKrLfPUze-10" value="" style="endArrow=classic;html=1;fontColor=#000000;entryX=0.004;entryY=0.606;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="--25wSJaByMxKrLfPUze-2">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="100" y="220" as="sourcePoint"/>
-            <mxPoint x="291.5" y="585.5" as="targetPoint"/>
-            <Array as="points"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="--25wSJaByMxKrLfPUze-11" value="" style="endArrow=classic;html=1;fontColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="--25wSJaByMxKrLfPUze-3">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="100" y="220" as="sourcePoint"/>
-            <mxPoint x="251.98000000000002" y="583.98" as="targetPoint"/>
-            <Array as="points"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="--25wSJaByMxKrLfPUze-12" value="" style="endArrow=classic;html=1;fontColor=#000000;entryX=-0.029;entryY=0.6;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="--25wSJaByMxKrLfPUze-8">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="100" y="220" as="sourcePoint"/>
-            <mxPoint x="251.5" y="665.5" as="targetPoint"/>
-            <Array as="points"/>
-          </mxGeometry>
         </mxCell>
         <mxCell id="--25wSJaByMxKrLfPUze-13" value="" style="endArrow=classic;html=1;fontColor=#000000;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="8QX9e3UgTYVbw0vNIzcA-37" target="8QX9e3UgTYVbw0vNIzcA-64">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
