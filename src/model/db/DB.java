@@ -74,35 +74,52 @@ public class DB {
 		for (String valor : valores) {
 			sql += "'" + valor + "',";
 		}
-		sql = sql.substring(0, sql.length()-1) + ")";
+		sql = sql.substring(0, sql.length() - 1) + ")";
 
 		statement.executeUpdate(sql);
 		statement.close();
 	}
-	
-	public static void updateData(String table, List<String> columns, List<String> newValues, String id) throws SQLException {
+
+	public static void updateData(String table, List<String> columns, List<String> newValues, String id)
+			throws SQLException {
 		String sql;
 		Statement statement = getConnection().createStatement();
-		
+
 		sql = String.format("update %s set ", table);
-		
-		for(int i = 0; i < columns.size(); i++) {
+
+		for (int i = 0; i < columns.size(); i++) {
 			sql += String.format("%s = '%s,", columns.get(i), newValues.get(i));
 		}
-		
-		sql = sql.substring(0, sql.length()-1) + String.format(" where id = '%s", id);
-		
+
+		sql = sql.substring(0, sql.length() - 1) + String.format(" where id = '%s", id);
+
 		statement.executeUpdate(sql);
 		statement.close();
 	}
-	
+
 	public static void deleteData(String table, String id) throws SQLException {
 		String sql;
 		Statement statement = getConnection().createStatement();
-		
+
 		sql = String.format("delete from %s where id = '%s'", table, id);
 		statement.executeUpdate(sql);
 		statement.close();
 	}
-	
+
+	// SELECT COM UMA CONDIÇÃO
+	public static ResultSet showEntity(String table, String keyColumn, String keyValue) throws SQLException {
+		Statement statement = connection.createStatement();
+		String sql = String.format("select * from %s where %s = '%s'", table, keyColumn, keyValue);
+		ResultSet query = statement.executeQuery(sql);
+		return query;
+	}
+
+	// SELECT SEM CONDICAO
+	public static ResultSet showEntity(String table) throws SQLException {
+		Statement statement = connection.createStatement();
+		String sql = String.format("select * from %s", table);
+		ResultSet query = statement.executeQuery(sql);
+		return query;
+	}
+
 }
