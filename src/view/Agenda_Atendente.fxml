@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="funcionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Funcionario">
+<BorderPane fx:id="agendaPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Agenda_Atendente">
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -126,7 +126,7 @@
                   <TableColumn minWidth="0.0" prefWidth="132.0" text="Médico" />
                </columns>
             </TableView>
-            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAdministradorView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
+            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAtendenteView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

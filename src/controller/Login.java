@@ -35,4 +35,20 @@ public class Login implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+	@FXML
+	private void loadAtendenteView(ActionEvent event) {
+		try {
+			
+			BorderPane pane = new BorderPane();
+			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atendente.fxml").toUri().toURL());
+			
+			LoginPane.getChildren().clear();
+			LoginPane.setCenter(pane);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

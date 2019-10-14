@@ -53,7 +53,7 @@ public class Administrador implements Initializable {
 	private void loadAgendaView(ActionEvent event) {
 		try {
 			BorderPane pane = new BorderPane();
-			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Agenda.fxml").toUri().toURL());
+			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Agenda_Admin.fxml").toUri().toURL());
 			
 			administradorPane.getChildren().clear();
 			administradorPane.setCenter(pane);

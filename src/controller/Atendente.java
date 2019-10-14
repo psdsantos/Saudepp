@@ -12,7 +12,7 @@ import javafx.scene.layout.BorderPane;
 
 public class Atendente implements Initializable {
 	@FXML
-	private BorderPane administradorPane;
+	private BorderPane atendentePane;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -22,13 +22,13 @@ public class Atendente implements Initializable {
 	
 	
 	@FXML
-	private void loadCRUD_AtendenteView(ActionEvent event) {
+	private void loadCRUD_PacienteView(ActionEvent event) {
 		try {
 			BorderPane pane = new BorderPane();
-			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/CRUD_Atendente.fxml").toUri().toURL());
+			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/CRUD_Paciente.fxml").toUri().toURL());
 			
-			administradorPane.getChildren().clear();
-			administradorPane.setCenter(pane);
+			atendentePane.getChildren().clear();
+			atendentePane.setCenter(pane);
 			
 
 		} catch (Exception e) {
@@ -36,14 +36,15 @@ public class Atendente implements Initializable {
 		}
 	}
 	
+	
 	@FXML
 	private void loadLoginView(ActionEvent event) {
 		try {
 			BorderPane pane = new BorderPane();
 			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Login.fxml").toUri().toURL());
 			
-			administradorPane.getChildren().clear();
-			administradorPane.setCenter(pane);
+			atendentePane.getChildren().clear();
+			atendentePane.setCenter(pane);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,10 +54,10 @@ public class Atendente implements Initializable {
 	private void loadAgendaView(ActionEvent event) {
 		try {
 			BorderPane pane = new BorderPane();
-			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Agenda.fxml").toUri().toURL());
+			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Agenda_Atendente.fxml").toUri().toURL());
 			
-			administradorPane.getChildren().clear();
-			administradorPane.setCenter(pane);
+			atendentePane.getChildren().clear();
+			atendentePane.setCenter(pane);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
