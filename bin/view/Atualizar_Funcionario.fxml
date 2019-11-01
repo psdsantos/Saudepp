@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import src.MaskedTextField?>
 
-<BorderPane fx:id="cadastroFuncionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cadastro_Funcionario">
+<BorderPane fx:id="atualizarFuncionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Atualizar_Funcionario">
    <center>
       <ScrollPane BorderPane.alignment="CENTER">
          <content>
@@ -40,9 +40,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nome" prefWidth="465.0" promptText="João Maria José">
-                  
-                  </TextField>
+                  <TextField prefWidth="465.0" />
                   <Label text="CPF">
                      <font>
                         <Font size="18.0" />
@@ -51,10 +49,10 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField fx:id="cpf" mask="###.###.###-##" plainText="">
-	                 <font>
-	                       <Font size="14.0" />
-	                 </font>
+                  <MaskedTextField mask="###.###.###-##" plainText="">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </MaskedTextField>
                   <Label text="Data de nascimento">
                      <font>
@@ -64,7 +62,12 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <DatePicker fx:id="dataNasc" />
+                  <DatePicker />
+                  <Label text="*TUDO PREENCHIDO DE ACORDO COM O QUE FOI SELECIONADO">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
                   <Label text="Endereço">
                      <font>
                         <Font name="Impact" size="28.0" />
@@ -83,7 +86,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="endereco" prefHeight="74.0" prefWidth="441.0" wrapText="true">
+                  <TextArea prefHeight="74.0" prefWidth="441.0" wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -96,10 +99,10 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField fx:id="cep" mask="#####-###" plainText="" text="_____-___">
-	                 <font>
-	                       <Font size="14.0" />
-	                 </font>
+                  <MaskedTextField mask="#####-###" plainText="">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </MaskedTextField>
                   <Label text="Contato">
                      <font>
@@ -122,10 +125,10 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField fx:id="cel" mask="(##) 9####-####" plainText="">
-	                 <font>
-	                       <Font size="14.0" />
-	                 </font>
+                  <MaskedTextField mask="(##) 9####-####" plainText="">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </MaskedTextField>
                   <Label text="Telefone">
                      <font>
@@ -135,12 +138,11 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField fx:id="tel" mask="(##) ####-####" plainText="">
-	                 <font>
-	                       <Font size="14.0" />
-	                 </font>
+                  <MaskedTextField mask="(##) ####-####" plainText="">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </MaskedTextField>
-                  
                   <Label text="E-mail">
                      <font>
                         <Font size="18.0" />
@@ -149,7 +151,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="email" prefWidth="441.0">
+                  <TextField prefWidth="441.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -165,9 +167,10 @@
                   <Line endX="350.0" startX="1.0">
                      <VBox.margin>
                         <Insets bottom="10.0" />
-                     </VBox.margin></Line>
+                     </VBox.margin>
+                  </Line>
                   <ToggleButtonGroup selectionType="SINGLE">
-                      <toggles>
+                     <toggles>
                         <RadioButton fx:id="radioButtonMedico" mnemonicParsing="false" text="Médico">
                            <font>
                               <Font size="18.0" />
@@ -181,11 +184,11 @@
                               <Insets left="30.0" />
                            </padding>
                         </RadioButton>
-                      </toggles>
+                     </toggles>
                   </ToggleButtonGroup>
                   <HBox prefHeight="37.0" prefWidth="445.0">
                      <children>
-                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveData" prefHeight="37.0" prefWidth="150.0" text="Salvar">
+                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" text="Salvar">
                            <font>
                               <Font size="16.0" />
                            </font>

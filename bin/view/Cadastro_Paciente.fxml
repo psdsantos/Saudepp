@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -40,9 +39,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nome" prefWidth="465.0" promptText="João Maria José">
-                  
-                  </TextField>
+                  <TextField prefWidth="465.0" promptText="João Maria José" />
                   <Label text="CPF">
                      <font>
                         <Font size="18.0" />
@@ -51,10 +48,10 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField fx:id="cpf" mask="###.###.###-##" plainText="">
-	                 <font>
-	                       <Font size="14.0" />
-	                 </font>
+                  <MaskedTextField mask="###.###.###-##" plainText="">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </MaskedTextField>
                   <Label text="Data de nascimento">
                      <font>
@@ -64,7 +61,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <DatePicker fx:id="dataNasc" />
+                  <DatePicker />
                   <Label text="Endereço">
                      <font>
                         <Font name="Impact" size="28.0" />
@@ -83,7 +80,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="endereco" prefHeight="74.0" prefWidth="441.0" wrapText="true">
+                  <TextArea prefHeight="74.0" prefWidth="441.0" wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -96,10 +93,10 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField fx:id="cep" mask="#####-###" plainText="" text="_____-___">
-	                 <font>
-	                       <Font size="14.0" />
-	                 </font>
+                  <MaskedTextField mask="#####-###" plainText="">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </MaskedTextField>
                   <Label text="Contato">
                      <font>
@@ -122,10 +119,10 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField fx:id="cel" mask="(##) 9####-####" plainText="">
-	                 <font>
-	                       <Font size="14.0" />
-	                 </font>
+                  <MaskedTextField mask="(##) 9####-####" plainText="">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </MaskedTextField>
                   <Label text="Telefone">
                      <font>
@@ -135,12 +132,11 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField fx:id="tel" mask="(##) ####-####" plainText="">
-	                 <font>
-	                       <Font size="14.0" />
-	                 </font>
+                  <MaskedTextField mask="(##) ####-####" plainText="">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </MaskedTextField>
-                  
                   <Label text="E-mail">
                      <font>
                         <Font size="18.0" />
@@ -149,43 +145,15 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="email" prefWidth="441.0">
+                  <TextField prefWidth="441.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Label text="Tipo de funcionário">
-                     <font>
-                        <Font name="Impact" size="28.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Line endX="350.0" startX="1.0">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin></Line>
-                  <ToggleButtonGroup selectionType="SINGLE">
-                      <toggles>
-                        <RadioButton fx:id="radioButtonMedico" mnemonicParsing="false" text="Médico">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </RadioButton>
-                        <RadioButton fx:id="radioButtonAtendente" mnemonicParsing="false" text="Atendente">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <padding>
-                              <Insets left="30.0" />
-                           </padding>
-                        </RadioButton>
-                      </toggles>
-                  </ToggleButtonGroup>
+                  <ToggleButtonGroup selectionType="SINGLE" />
                   <HBox prefHeight="37.0" prefWidth="445.0">
                      <children>
-                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveData" prefHeight="37.0" prefWidth="150.0" text="Salvar">
+                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" text="Salvar">
                            <font>
                               <Font size="16.0" />
                            </font>

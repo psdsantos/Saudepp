@@ -14,11 +14,11 @@
 <?import javafx.scene.text.Font?>
 <?import src.MaskedTextField?>
 
-<BorderPane fx:id="funcionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Funcionario">
+<BorderPane fx:id="pacientePane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Paciente">
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <Label text="Cadastrar novo funcionário">
+            <Label text="Cadastrar novo paciente">
                <font>
                   <Font name="Impact" size="28.0" />
                </font>
@@ -26,7 +26,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#loadCadastro_FuncionarioView" prefHeight="25.0" prefWidth="236.0" text="Prosseguir">
+            <Button mnemonicParsing="false" onAction="#loadCadastro_PacienteView" prefHeight="25.0" prefWidth="236.0" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
@@ -34,7 +34,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Label prefWidth="314.0" text="Atualizar funcionário">
+            <Label prefWidth="314.0" text="Atualizar paciente">
                <font>
                   <Font name="Impact" size="28.0" />
                </font>
@@ -55,7 +55,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <MaskedTextField fx:id="selectedCpf1" editable="false" mask="###.###.###-##" opacity="0.8" plainText="" text="___.___.___-__">
+            <MaskedTextField mask="###.###.###-##" plainText="">
                <font>
                   <Font size="14.0" />
                </font>
@@ -63,7 +63,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </MaskedTextField>
-            <Button mnemonicParsing="false" onAction="#loadAtualizar_FuncionarioView" prefHeight="25.0" prefWidth="242.0" text="Prosseguir">
+            <Button mnemonicParsing="false" onAction="#loadAtualizar_PacienteView" prefHeight="25.0" prefWidth="242.0" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
@@ -71,7 +71,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Label prefHeight="34.0" prefWidth="314.0" text="Deletar funcionário">
+            <Label prefHeight="34.0" prefWidth="314.0" text="Deletar paciente">
                <font>
                   <Font name="Impact" size="28.0" />
                </font>
@@ -95,7 +95,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <MaskedTextField fx:id="selectedCpf2" editable="false" mask="###.###.###-##" opacity="0.69">
+            <MaskedTextField mask="###.###.###-##" plainText="">
                <font>
                   <Font size="14.0" />
                </font>
@@ -103,7 +103,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </MaskedTextField>
-            <Button fx:id="btn_delete" mnemonicParsing="false" onAction="#deleteData" prefHeight="37.0" prefWidth="162.0" text="Deletar">
+            <Button fx:id="btn_delete" mnemonicParsing="false" prefHeight="37.0" prefWidth="162.0" text="Deletar">
                <font>
                   <Font size="16.0" />
                </font>
@@ -145,17 +145,16 @@
                   </TextField>
                </children>
             </HBox>
-            <TableView fx:id="tableFuncionario" onMouseClicked="#showCpf">
+            <TableView>
                <columns>
-                  <TableColumn fx:id="nomeCol" editable="false" prefWidth="337.0" text="Nome" />
-                  <TableColumn fx:id="codCol" editable="false" minWidth="0.0" prefWidth="62.0" text="Código" />
-                  <TableColumn fx:id="cpfCol" editable="false" minWidth="0.0" prefWidth="139.0" text="CPF" />
+                  <TableColumn prefWidth="349.0" text="Nome" />
+                  <TableColumn minWidth="0.0" prefWidth="183.0" text="Código" />
                </columns>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </TableView>
-            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAdministradorView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
+            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAtendenteView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

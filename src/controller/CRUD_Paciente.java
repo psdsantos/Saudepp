@@ -36,8 +36,9 @@ public class CRUD_Paciente implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Saúde ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
-            stage.setScene(new Scene(root, 505, WindowsParam.getHeight()));
-            stage.setResizable(false);
+            stage.setScene(new Scene(root));
+            stage.setHeight(WindowsParam.getHeight());
+            stage.setResizable(true);
             stage.show();
 			
 		} catch (Exception e) {
@@ -54,8 +55,9 @@ public class CRUD_Paciente implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Saúde ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
-            stage.setScene(new Scene(root, 505, WindowsParam.getHeight()));
-            stage.setResizable(false);
+            stage.setScene(new Scene(root));
+            stage.setHeight(WindowsParam.getHeight());
+            stage.setResizable(true);
             stage.show();
 			
 		} catch (Exception e) {

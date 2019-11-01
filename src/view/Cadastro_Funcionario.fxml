@@ -40,7 +40,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefWidth="465.0" promptText="João Maria José">
+                  <TextField fx:id="nome" prefWidth="465.0" promptText="João Maria José">
                   
                   </TextField>
                   <Label text="CPF">
@@ -51,7 +51,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField mask="###.###.###-##" plainText="">
+                  <MaskedTextField fx:id="cpf" mask="###.###.###-##" plainText="">
 	                 <font>
 	                       <Font size="14.0" />
 	                 </font>
@@ -64,7 +64,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <DatePicker />
+                  <DatePicker fx:id="dataNasc" />
                   <Label text="Endereço">
                      <font>
                         <Font name="Impact" size="28.0" />
@@ -83,7 +83,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea prefHeight="74.0" prefWidth="441.0" wrapText="true">
+                  <TextArea fx:id="endereco" prefHeight="74.0" prefWidth="441.0" wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -96,7 +96,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField mask="#####-###" plainText="">
+                  <MaskedTextField fx:id="cep" mask="#####-###" plainText="" text="_____-___">
 	                 <font>
 	                       <Font size="14.0" />
 	                 </font>
@@ -122,7 +122,7 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField mask="(##) 9####-####" plainText="">
+                  <MaskedTextField fx:id="cel" mask="(##) 9####-####" plainText="">
 	                 <font>
 	                       <Font size="14.0" />
 	                 </font>
@@ -135,7 +135,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField mask="(##) ####-####" plainText="">
+                  <MaskedTextField fx:id="tel" mask="(##) ####-####" plainText="">
 	                 <font>
 	                       <Font size="14.0" />
 	                 </font>
@@ -149,7 +149,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField prefWidth="441.0">
+                  <TextField fx:id="email" prefWidth="441.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -185,7 +185,7 @@
                   </ToggleButtonGroup>
                   <HBox prefHeight="37.0" prefWidth="445.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" text="Salvar">
+                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveData" prefHeight="37.0" prefWidth="150.0" text="Salvar">
                            <font>
                               <Font size="16.0" />
                            </font>

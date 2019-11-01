@@ -17,7 +17,7 @@ public class DB {
 		if (connection == null) {
 			try {
 				Properties props = loadProperties();
-				String url = props.getProperty("dburl");
+				String url = props.getProperty("url");
 				connection = DriverManager.getConnection(url, props);
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -38,7 +38,7 @@ public class DB {
 
 	private static Properties loadProperties() {
 		Properties props = new Properties();
-		try (FileInputStream fs = new FileInputStream("db.properties")) {
+		try (FileInputStream fs = new FileInputStream("src/model/db/db.properties")) {
 			props.load(fs);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -97,29 +97,35 @@ public class DB {
 		statement.close();
 	}
 
-	public static void deleteData(String table, String id) throws SQLException {
-		String sql;
+	public static void deleteData(String table, String pk_name, String id) throws SQLException {
 		Statement statement = getConnection().createStatement();
-
-		sql = String.format("delete from %s where id = '%s'", table, id);
+		String sql = String.format("delete from %s where %s = '%s'", table, pk_name, id);
 		statement.executeUpdate(sql);
 		statement.close();
 	}
 
 	// SELECT COM UMA CONDIÇÃO
 	public static ResultSet showEntity(String table, String keyColumn, String keyValue) throws SQLException {
-		Statement statement = connection.createStatement();
+		Statement statement = getConnection().createStatement();
 		String sql = String.format("select * from %s where %s = '%s'", table, keyColumn, keyValue);
 		ResultSet query = statement.executeQuery(sql);
+		statement.close();
 		return query;
 	}
 
 	// SELECT SEM CONDICAO
 	public static ResultSet showEntity(String table) throws SQLException {
-		Statement statement = connection.createStatement();
+		Statement statement = getConnection().createStatement();
 		String sql = String.format("select * from %s", table);
 		ResultSet query = statement.executeQuery(sql);
 		return query;
+	}
+	
+	public static void changeDateStyle(String dateStyle) throws SQLException {
+		Statement statement = getConnection().createStatement();
+		String sql = String.format("SET DATESTYLE TO %s", dateStyle);
+		statement.executeUpdate(sql);
+		statement.close();
 	}
 
 }

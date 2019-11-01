@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.db.DB;
 import model.util.WindowsParam;
 
 public class Main extends Application {
@@ -29,7 +30,9 @@ public class Main extends Application {
 			primaryStage.getIcons().add(new Image("model/resources/saudeIcon.png"));
 			primaryStage.show();
 			
-			
+			DB.closeConnection();
+			DB.getConnection();
+			DB.changeDateStyle("ISO, DMY");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
