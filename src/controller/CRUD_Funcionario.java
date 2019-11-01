@@ -51,6 +51,8 @@ public class CRUD_Funcionario implements Initializable {
 		cpfCol.setCellValueFactory(new PropertyValueFactory<>("cpf")); 
 	                
 		refreshTableView();
+	
+		
 	}
 	
 	private void refreshTableView() {
@@ -63,7 +65,7 @@ public class CRUD_Funcionario implements Initializable {
 	
 	@FXML
 	private void deleteData(ActionEvent event) throws SQLException {
-	
+		
 		Funcionario fun = tableFuncionario.getSelectionModel().getSelectedItem();
 		String id = fun.getCodFuncionario().toString();
 		
@@ -101,9 +103,15 @@ public class CRUD_Funcionario implements Initializable {
 	
 	@FXML
 	private void loadAtualizar_FuncionarioView(ActionEvent event) {
+		
 		try {
-			
 			Parent root;
+			
+    		Funcionario fun = tableFuncionario.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Atualizar_Funcionario.fxml"));
+            root = loader.load();
+            Atualizar_Funcionario controller = loader.<Atualizar_Funcionario>getController();
+		 	controller.initVariable(fun);
 			root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Funcionario.fxml").toUri().toURL());
             Stage stage = new Stage();
             stage.setTitle("Saude ++");
@@ -111,9 +119,9 @@ public class CRUD_Funcionario implements Initializable {
             stage.setScene(new Scene(root));
             stage.setHeight(WindowsParam.getHeight());
             stage.setResizable(true);
-            stage.show();
-			
-		} catch (Exception e) {
+            
+		 	stage.show();
+		 	} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
