@@ -1,10 +1,6 @@
 package controller;
 
 import java.net.URL;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -16,7 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import model.db.DB;
+import model.entities.Funcionario;
 import src.MaskedTextField;
 
 public class Atualizar_Funcionario implements Initializable {
@@ -42,35 +38,39 @@ public class Atualizar_Funcionario implements Initializable {
 	private MaskedTextField tel;
 	@FXML
 	private TextField email;
+	private Funcionario fun;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+	
+		/*
+		dados.add(cpf.setPlainText());
+		if(email.getText() != null) dados.add(email.getText());
+		dados.add(dataNasc.setValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+		dados.add(endereco.setText());
+		dados.add(cep.setPlainText());
+		if(cel.setPlainText() != null) dados.add(cel.setPlainText());
+		if(tel.setPlainText() != null) dados.add(tel.setPlainText());
+		*/
+		System.out.println(fun);
+	}
+	
+	public void initVariable(Funcionario fun){
+		this.fun = fun;
+    }
+	
+	@FXML
+	private void fill() {
+		System.out.println(fun);
+		nome.setText(fun.getNome());
+        email.setText(fun.getEmail());
+
 	}
 	
 	@FXML
 	private void updateData(ActionEvent event) {
 		try {
 			
-			List<String> dados = new ArrayList<String>();
-			
-			// [ARMENGUE] USAR AUTO_INCREMENT
-			Random gerador = new Random();
-			Integer a = gerador.nextInt(1000);
-			String codFun = a.toString();
-			
-			dados.add(codFun);
-			
-			dados.add(nome.getText());
-			dados.add(cpf.getPlainText());
-			if(email.getText() != null) dados.add(email.getText());
-			dados.add(dataNasc.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-			dados.add(endereco.getText());
-			dados.add(cep.getPlainText());
-			if(cel.getPlainText() != null) dados.add(cel.getPlainText());
-			if(tel.getPlainText() != null) dados.add(tel.getPlainText());
-			
-			DB.insertData("funcionario", dados);
 			closeView();
 			
 		} catch (Exception e) {
