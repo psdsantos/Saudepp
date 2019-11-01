@@ -5,10 +5,10 @@ import java.nio.file.Paths;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import model.db.DB;
 import model.entities.Funcionario;
 import model.util.WindowsParam;
@@ -49,6 +50,10 @@ public class CRUD_Funcionario implements Initializable {
 		codCol.setCellValueFactory(new PropertyValueFactory<>("codFuncionario")); 	
 		cpfCol.setCellValueFactory(new PropertyValueFactory<>("cpf")); 
 	                
+		refreshTableView();
+	}
+	
+	private void refreshTableView() {
 		try {
 			tableFuncionario.getItems().setAll(initList());
 		} catch (SQLException e) {
@@ -64,10 +69,7 @@ public class CRUD_Funcionario implements Initializable {
 		
 		DB.deleteData("funcionario", "codFuncionario", id);
 		
-		System.out.println("DELETADO MALUCO");
-		
-		initList();
-		
+		refreshTableView();
 	}
 	
 	@FXML
@@ -130,10 +132,20 @@ public class CRUD_Funcionario implements Initializable {
             stage.setResizable(true);
             stage.show();
 			
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+
+        	    @Override
+        	    public void handle(WindowEvent paramT) {
+        	        refreshTableView();
+        	    }
+        	});
+            
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	@FXML
 	private void loadAdministradorView(ActionEvent event) {

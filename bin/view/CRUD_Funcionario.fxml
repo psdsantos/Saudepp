@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import src.MaskedTextField?>
 
-<BorderPane fx:id="funcionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Funcionario">
+<BorderPane fx:id="funcionarioPane" xmlns="http://javafx.com/javafx/8.0.172" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Funcionario">
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -55,7 +55,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <MaskedTextField disable="true" editable="false" mask="###.###.###-##" plainText="">
+            <MaskedTextField fx:id="selectedCpf1" editable="false" mask="###.###.###-##" opacity="0.8" plainText="" text="___.___.___-__">
                <font>
                   <Font size="14.0" />
                </font>
@@ -95,7 +95,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <MaskedTextField disable="true" editable="false" mask="###.###.###-##" plainText="">
+            <MaskedTextField fx:id="selectedCpf2" editable="false" mask="###.###.###-##" opacity="0.69">
                <font>
                   <Font size="14.0" />
                </font>
@@ -103,7 +103,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </MaskedTextField>
-            <Button fx:id="btn_delete" mnemonicParsing="false" prefHeight="37.0" prefWidth="162.0" text="Deletar">
+            <Button fx:id="btn_delete" mnemonicParsing="false" onAction="#deleteData" prefHeight="37.0" prefWidth="162.0" text="Deletar">
                <font>
                   <Font size="16.0" />
                </font>
@@ -145,10 +145,11 @@
                   </TextField>
                </children>
             </HBox>
-            <TableView fx:id="tableFuncionario">
+            <TableView fx:id="tableFuncionario" onMouseClicked="#showCpf">
                <columns>
-                  <TableColumn fx:id="nomeCol" prefWidth="349.0" text="Nome" />
-                  <TableColumn fx:id="codCol" minWidth="0.0" prefWidth="183.0" text="Código" />
+                  <TableColumn fx:id="nomeCol" editable="false" prefWidth="337.0" text="Nome" />
+                  <TableColumn fx:id="codCol" editable="false" minWidth="0.0" prefWidth="62.0" text="Código" />
+                  <TableColumn fx:id="cpfCol" editable="false" minWidth="0.0" prefWidth="139.0" text="CPF" />
                </columns>
                <VBox.margin>
                   <Insets top="10.0" />

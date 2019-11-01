@@ -56,18 +56,20 @@ public class Cadastro_Funcionario implements Initializable {
 			Random gerador = new Random();
 			Integer a = gerador.nextInt(1000);
 			String codFun = a.toString();
+			
 			dados.add(codFun);
+			
 			dados.add(nome.getText());
 			dados.add(cpf.getPlainText());
 			if(email.getText() != null) dados.add(email.getText());
 			dados.add(dataNasc.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-			System.out.println(dataNasc.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 			dados.add(endereco.getText());
 			dados.add(cep.getPlainText());
 			if(cel.getPlainText() != null) dados.add(cel.getPlainText());
 			if(tel.getPlainText() != null) dados.add(tel.getPlainText());
 			
 			DB.insertData("funcionario", dados);
+			closeView();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +77,7 @@ public class Cadastro_Funcionario implements Initializable {
 	}
 	
 	@FXML
-	private void closeView(ActionEvent event) {
+	private void closeView() {
 		try {
 			
 		    Stage stage = (Stage) closeButton.getScene().getWindow();

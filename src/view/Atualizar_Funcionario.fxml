@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import src.MaskedTextField?>
 
-<BorderPane fx:id="atualizarFuncionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Atualizar_Funcionario">
+<BorderPane fx:id="atualizarFuncionarioPane" xmlns="http://javafx.com/javafx/8.0.172" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Atualizar_Funcionario">
    <center>
       <ScrollPane BorderPane.alignment="CENTER">
          <content>
@@ -188,7 +188,7 @@
                   </ToggleButtonGroup>
                   <HBox prefHeight="37.0" prefWidth="445.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" text="Salvar">
+                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#updateData" prefHeight="37.0" prefWidth="150.0" text="Salvar">
                            <font>
                               <Font size="16.0" />
                            </font>

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import src.MaskedTextField?>
 
-<BorderPane fx:id="funcionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Funcionario">
+<BorderPane fx:id="funcionarioPane" xmlns="http://javafx.com/javafx/8.0.172" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Funcionario">
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
