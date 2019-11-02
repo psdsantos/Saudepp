@@ -93,7 +93,6 @@ public class DB {
 		}
 
 		sql = sql.substring(0, sql.length() - 1) + String.format(" where %s = '%s'", pk_name, id);
-		System.out.println(sql);
 		statement.executeUpdate(sql);
 		statement.close();
 	}

@@ -194,7 +194,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField fx:id="crm" />
+                  <MaskedTextField fx:id="crm" disable="true" mask="#########" />
                   <HBox prefHeight="37.0" prefWidth="445.0">
                      <children>
                         <Button fx:id="saveButton" mnemonicParsing="false" onAction="#updateData" prefHeight="37.0" prefWidth="150.0" text="Salvar">

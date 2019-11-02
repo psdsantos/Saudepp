@@ -173,7 +173,7 @@
                               <Font size="18.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton fx:id="radioButtonAtendente" mnemonicParsing="false" selected="true" text="Atendente">
+                        <RadioButton fx:id="radioButtonAtendente" mnemonicParsing="false" onAction="#disableCrm" selected="true" text="Atendente">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -191,7 +191,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <MaskedTextField fx:id="crm" mask="#########" />
+                  <MaskedTextField fx:id="crm" disable="true" mask="#########" />
                   <HBox prefHeight="37.0" prefWidth="445.0">
                      <children>
                         <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveData" prefHeight="37.0" prefWidth="150.0" text="Salvar">

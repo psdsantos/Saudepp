@@ -97,24 +97,21 @@ public class Atualizar_Funcionario implements Initializable {
 	@FXML
 	private void updateData(ActionEvent event) {
 		try {
-			
 			if(nome.getText().length() == 0) throw new InvalidFieldSizeException();
 			if(cpf.getPlainText().length() != 11) throw new InvalidFieldSizeException();
-			if(email.getText().length() == 0) throw new InvalidFieldSizeException();
 			if(endereco.getText().length() == 0) throw new InvalidFieldSizeException();
-			if(cep.getPlainText().length() != 9) throw new InvalidFieldSizeException();
+			if(cep.getPlainText().length() != 8) throw new InvalidFieldSizeException();
 			
 			List<String> dados = new ArrayList<String>();
 			
 			dados.add(nome.getText());
 			dados.add(cpf.getPlainText());
-			if(cpf.getPlainText() == null) throw new NullPointerException();
-			if(email.getText() != null) dados.add(email.getText());
+			dados.add(email.getText());
 			dados.add(dataNasc.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 			dados.add(endereco.getText());
 			dados.add(cep.getPlainText());
-			if(cel.getPlainText() != null) dados.add(cel.getPlainText());
-			if(tel.getPlainText() != null) dados.add(tel.getPlainText());
+			dados.add(cel.getPlainText());
+			dados.add(tel.getPlainText());
 			
 			List<String> columns = new ArrayList<String>();
 			
@@ -128,9 +125,9 @@ public class Atualizar_Funcionario implements Initializable {
 			columns.add("telefone");
 			
 			if(radioButtonMedico.isSelected()) {
-				if(crm.getPlainText().length() < 4 || crm.getPlainText().length() > 9) throw new InvalidFieldSizeException();
+				if(crm.getPlainText().length() < 4) throw new InvalidFieldSizeException();
 				columns.add("crm");
-				dados.add(crm.getText());
+				dados.add(crm.getPlainText());
 				DB.updateData("medico", columns, dados, "codMedico", fun.getCodFuncionario().toString());
 			} else if(radioButtonAtendente.isSelected()) {
 				DB.updateData("funcionario", columns, dados, "codFuncionario", fun.getCodFuncionario().toString());
@@ -145,7 +142,7 @@ public class Atualizar_Funcionario implements Initializable {
 		} catch (NullPointerException e) {
 			Alert alert = new Alert(AlertType.WARNING);
             alert.setTitle("AVISO");
-            alert.setHeaderText("Erro no preenchimento de dados");
+            alert.setHeaderText("Erro no preenchimento de dados.");
             alert.setContentText("Obrigatório preenchimento completo de todas as informações marcadas com asterisco (*).");
             alert.showAndWait();
 		} catch (Exception e) {
