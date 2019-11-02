@@ -60,11 +60,11 @@ public class Atualizar_Funcionario implements Initializable {
 		
 		nome.setText(fun.getNome());
 		//dataNasc.setValue((fun.getdataNasc());
-		cpf.setText(fun.getCpf());
+		cpf.setPlainText(fun.getCpf());
 		endereco.setText(fun.getEndereco());
-		cep.setText(fun.getCep());
-		cel.setText(fun.getCelular());
-		tel.setText(fun.getTelefone());
+		cep.setPlainText(fun.getCep());
+		cel.setPlainText(fun.getCelular());
+		tel.setPlainText(fun.getTelefone());
         email.setText(fun.getEmail());
         
 	}

@@ -69,6 +69,7 @@ public class Cadastro_Funcionario implements Initializable {
 			if(tel.getPlainText() != null) dados.add(tel.getPlainText());
 			
 			DB.insertData("funcionario", dados);
+			
 			closeView();
 			
 		} catch (Exception e) {
