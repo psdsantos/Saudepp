@@ -4,6 +4,9 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -77,14 +80,13 @@ public class CRUD_Funcionario implements Initializable {
 	@FXML
 	private void showCpf(MouseEvent event) {
 		
-		if (event.getClickCount() == 2) {
 			Funcionario fun = tableFuncionario.getSelectionModel().getSelectedItem();
 			String cpf = fun.getCpf();
 			cpf = String.format("%s.%s.%s-%s", cpf.substring(0, 3), 
 					cpf.substring(3, 6), cpf.substring(6, 9), cpf.substring(9));
 			selectedCpf1.setText(cpf);
 			selectedCpf2.setText(cpf);
-		}
+		
 	}
 	
 	private ObservableList<Funcionario>  initList() throws SQLException {
@@ -95,12 +97,27 @@ public class CRUD_Funcionario implements Initializable {
 			fun.setCodFuncionario(Integer.parseInt(rSet.getString("codFuncionario")));
 			fun.setNome(rSet.getString("nome"));
 			fun.setCpf(rSet.getString("cpf"));
+			fun.setdataNasc(toDate(rSet.getString("datanasc")));
+			fun.setEndereco(rSet.getString("endereco"));
+			fun.setCep(rSet.getString("cep"));
+			fun.setCelular(rSet.getString("celular"));
+			fun.setTelefone(rSet.getString("telefone"));
+			fun.setEmail(rSet.getString("email"));
 			obs.add(fun);
 		}
 		return obs;
 	}
 	
-	
+	private Date toDate(String date) {
+		Date date1 = null;
+		try {
+			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return date1;
+	}
 	@FXML
 	private void loadAtualizar_FuncionarioView(ActionEvent event) {
 		
@@ -110,9 +127,9 @@ public class CRUD_Funcionario implements Initializable {
     		Funcionario fun = tableFuncionario.getSelectionModel().getSelectedItem();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Atualizar_Funcionario.fxml"));
             root = loader.load();
+            //root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Funcionario.fxml").toUri().toURL());
             Atualizar_Funcionario controller = loader.<Atualizar_Funcionario>getController();
-		 	controller.initVariable(fun);
-			root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Funcionario.fxml").toUri().toURL());
+		 	
             Stage stage = new Stage();
             stage.setTitle("Saude ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
@@ -121,6 +138,7 @@ public class CRUD_Funcionario implements Initializable {
             stage.setResizable(true);
             
 		 	stage.show();
+		 	controller.initVariable(fun);
 		 	} catch (Exception e) {
 			e.printStackTrace();
 		}

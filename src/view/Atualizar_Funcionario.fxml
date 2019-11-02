@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import src.MaskedTextField?>
 
-<BorderPane fx:id="atualizarFuncionarioPane" onMouseClicked="#fill" xmlns="http://javafx.com/javafx/8.0.172" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Atualizar_Funcionario">
+<BorderPane fx:id="atualizarFuncionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Atualizar_Funcionario">
    <center>
       <ScrollPane BorderPane.alignment="CENTER">
          <content>

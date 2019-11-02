@@ -1,6 +1,8 @@
 package controller;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -42,30 +44,34 @@ public class Atualizar_Funcionario implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-	
-		/*
-		dados.add(cpf.setPlainText());
-		if(email.getText() != null) dados.add(email.getText());
-		dados.add(dataNasc.setValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-		dados.add(endereco.setText());
-		dados.add(cep.setPlainText());
-		if(cel.setPlainText() != null) dados.add(cel.setPlainText());
-		if(tel.setPlainText() != null) dados.add(tel.setPlainText());
-		*/
-		System.out.println(fun);
+		
 	}
 	
 	public void initVariable(Funcionario fun){
 		this.fun = fun;
+		fill();
     }
 	
 	@FXML
 	private void fill() {
-		System.out.println(fun);
+		
 		nome.setText(fun.getNome());
+		//dataNasc.setValue((fun.getdataNasc());
+		cpf.setText(fun.getCpf());
+		endereco.setText(fun.getEndereco());
+		cep.setText(fun.getCep());
+		cel.setText(fun.getCelular());
+		tel.setText(fun.getTelefone());
         email.setText(fun.getEmail());
-
+        
+        
 	}
+	
+	public static final LocalDate toLocalDate (String dateString){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate localDate = LocalDate.parse(dateString, formatter);
+        return localDate;
+    }
 	
 	@FXML
 	private void updateData(ActionEvent event) {
