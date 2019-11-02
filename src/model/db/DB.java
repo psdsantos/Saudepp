@@ -1,5 +1,4 @@
 package model.db;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -9,10 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import java.util.Properties;
-
 public class DB {
 	private static Connection connection = null;
-
 	public static Connection getConnection() {
 		if (connection == null) {
 			try {
@@ -25,7 +22,6 @@ public class DB {
 		}
 		return connection;
 	}
-
 	public static void closeConnection() {
 		if (connection != null) {
 			try {
@@ -35,7 +31,6 @@ public class DB {
 			}
 		}
 	}
-
 	private static Properties loadProperties() {
 		Properties props = new Properties();
 		try (FileInputStream fs = new FileInputStream("src/model/db/db.properties")) {
@@ -45,7 +40,6 @@ public class DB {
 		}
 		return props;
 	}
-
 	public static void closeStatement(Statement st) {
 		if (st != null) {
 			try {
@@ -55,7 +49,6 @@ public class DB {
 			}
 		}
 	}
-
 	public static void closeResultSet(ResultSet rs) {
 		if (rs != null) {
 			try {
@@ -65,17 +58,35 @@ public class DB {
 			}
 		}
 	}
-
 	public static void insertData(String tabela, List<String> valores) throws SQLException {
 		String sql;
 		Statement statement = getConnection().createStatement();
 		sql = String.format("insert into %s values (", tabela);
-
 		for (String valor : valores) {
 			sql += "'" + valor + "',";
 		}
 		sql = sql.substring(0, sql.length() - 1) + ")";
+		statement.executeUpdate(sql);
+		statement.close();
+	}
 
+	public static void insertData(String table, List<String> columns, List<String> values) throws SQLException {
+		String sql;
+		Statement statement = connection.createStatement();
+
+		sql = String.format("insert into %s", table);
+
+		for(String column : columns) {
+			sql += column + ",";
+		}
+
+		sql += sql.substring(0, sql.length()-1) + String.format(") values (");
+
+		for(String value : values) {
+			sql += "'" + value + "',";
+		}
+
+		sql = sql.substring(0, sql.length()-1) + ")";
 		statement.executeUpdate(sql);
 		statement.close();
 	}
@@ -85,25 +96,21 @@ public class DB {
 		
 		String sql;
 		Statement statement = getConnection().createStatement();
-
 		sql = String.format("update %s set ", table);
-
 		for (int i = 0; i < columns.size(); i++) {
 			sql += String.format("%s = '%s',", columns.get(i), newValues.get(i));
 		}
-
 		sql = sql.substring(0, sql.length() - 1) + String.format(" where %s = '%s'", pk_name, id);
+		System.out.println(sql);
 		statement.executeUpdate(sql);
 		statement.close();
 	}
-
 	public static void deleteData(String table, String pk_name, String id) throws SQLException {
 		Statement statement = getConnection().createStatement();
 		String sql = String.format("delete from %s where %s = '%s'", table, pk_name, id);
 		statement.executeUpdate(sql);
 		statement.close();
 	}
-
 	// SELECT COM UMA CONDIÇÃO
 	public static ResultSet showEntity(String table, String keyColumn, String keyValue) throws SQLException {
 		Statement statement = getConnection().createStatement();
@@ -112,7 +119,6 @@ public class DB {
 		statement.close();
 		return query;
 	}
-
 	// SELECT SEM CONDICAO
 	public static ResultSet showEntity(String table) throws SQLException {
 		Statement statement = getConnection().createStatement();
@@ -127,5 +133,4 @@ public class DB {
 		statement.executeUpdate(sql);
 		statement.close();
 	}
-
 }
