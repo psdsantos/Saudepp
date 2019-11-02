@@ -92,7 +92,14 @@ public class Atualizar_Funcionario implements Initializable {
 			
 			List<String> columns = new ArrayList<String>();
 			
-			columns.add("nome, cpf, email, datanasc, endereco, cep, celular, telefone");
+			columns.add("nome");
+			columns.add("cpf");
+			columns.add("email");
+			columns.add("datanasc");
+			columns.add("endereco");
+			columns.add("cep");
+			columns.add("celular");
+			columns.add("telefone");
 			
 			DB.updateData("funcionario", columns, dados, fun.getCodFuncionario().toString());
 			
