@@ -20,6 +20,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.db.DB;
+import model.exceptions.InvalidFieldSizeException;
 import src.MaskedTextField;
 
 public class Cadastro_Funcionario implements Initializable {
@@ -30,7 +31,7 @@ public class Cadastro_Funcionario implements Initializable {
 	@FXML
 	private TextField nome;
 	@FXML
-	private TextField crm;
+	private MaskedTextField crm;
 	@FXML
 	private MaskedTextField cpf;
 	@FXML
@@ -62,12 +63,19 @@ public class Cadastro_Funcionario implements Initializable {
 			List<String> dados = new ArrayList<String>();
 			
 			// [ARMENGUE] USAR AUTO_INCREMENT
+			
+			if(nome.getText().length() == 0) throw new InvalidFieldSizeException();
+			if(cpf.getPlainText().length() != 11) throw new InvalidFieldSizeException();
+			if(email.getText().length() == 0) throw new InvalidFieldSizeException();
+			if(endereco.getText().length() == 0) throw new InvalidFieldSizeException();
+			if(cep.getPlainText().length() != 9) throw new InvalidFieldSizeException();
+			
 			Random gerador = new Random();
 			Integer a = gerador.nextInt(1000);
 			String codFun = a.toString();
 			
 			dados.add(codFun);
-			
+		
 			dados.add(nome.getText());
 			if(radioButtonMedico.isSelected())dados.add(crm.getText());
 			dados.add(cpf.getPlainText());
@@ -81,17 +89,23 @@ public class Cadastro_Funcionario implements Initializable {
 			if(radioButtonAtendente.isSelected()) {
 				DB.insertData("funcionario", dados);
 			} else if (radioButtonMedico.isSelected()) {
+				if(crm.getPlainText().length() < 4 || crm.getPlainText().length() > 9) throw new InvalidFieldSizeException();
 				DB.insertData("medico", dados);
 			}
 			
 			closeView();
 			
+		} catch(InvalidFieldSizeException e) {
+			Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("AVISO");
+            alert.setHeaderText("Erro no preenchimento de dados");
+            alert.setContentText("Obrigatório preenchimento completo de todas as informações marcadas com asterisco (*).");
+            alert.showAndWait();
 		} catch (NullPointerException e) {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("AVISO");
-			alert.setHeaderText("Obrigatório preenchimento de todas as informações marcadas com asterisco (*).");
-			//alert.setContentText("Careful with the next step!");
-
+			alert.setHeaderText("Erro no preenchimento de dados");
+			alert.setContentText("Obrigatório preenchimento de todas as informações marcadas com asterisco (*).");
 			alert.showAndWait();
 		} catch (Exception e) {
 			e.printStackTrace();

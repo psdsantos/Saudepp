@@ -21,6 +21,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.db.DB;
 import model.entities.Funcionario;
+import model.exceptions.InvalidFieldSizeException;
 import src.MaskedTextField;
 
 public class Atualizar_Funcionario implements Initializable {
@@ -52,7 +53,7 @@ public class Atualizar_Funcionario implements Initializable {
 	@FXML
 	private RadioButton radioButtonAtendente;
 	@FXML
-	private TextField crm;
+	private MaskedTextField crm;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -77,7 +78,6 @@ public class Atualizar_Funcionario implements Initializable {
 	private void fill() {
 		
 		nome.setText(fun.getNome());
-		//dataNasc.setValue((fun.getdataNasc());
 		cpf.setPlainText(fun.getCpf());
 		endereco.setText(fun.getEndereco());
 		cep.setPlainText(fun.getCep());
@@ -97,6 +97,12 @@ public class Atualizar_Funcionario implements Initializable {
 	@FXML
 	private void updateData(ActionEvent event) {
 		try {
+			
+			if(nome.getText().length() == 0) throw new InvalidFieldSizeException();
+			if(cpf.getPlainText().length() != 11) throw new InvalidFieldSizeException();
+			if(email.getText().length() == 0) throw new InvalidFieldSizeException();
+			if(endereco.getText().length() == 0) throw new InvalidFieldSizeException();
+			if(cep.getPlainText().length() != 9) throw new InvalidFieldSizeException();
 			
 			List<String> dados = new ArrayList<String>();
 			
@@ -122,6 +128,7 @@ public class Atualizar_Funcionario implements Initializable {
 			columns.add("telefone");
 			
 			if(radioButtonMedico.isSelected()) {
+				if(crm.getPlainText().length() < 4 || crm.getPlainText().length() > 9) throw new InvalidFieldSizeException();
 				columns.add("crm");
 				dados.add(crm.getText());
 				DB.updateData("medico", columns, dados, "codMedico", fun.getCodFuncionario().toString());
@@ -129,13 +136,18 @@ public class Atualizar_Funcionario implements Initializable {
 				DB.updateData("funcionario", columns, dados, "codFuncionario", fun.getCodFuncionario().toString());
 			}
 			closeView();
+		} catch(InvalidFieldSizeException e) {
+			Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("AVISO");
+            alert.setHeaderText("Erro no preenchimento de dados");
+            alert.setContentText("Obrigatório preenchimento completo de todas as informações marcadas com asterisco (*).");
+            alert.showAndWait();
 		} catch (NullPointerException e) {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("AVISO");
-			alert.setHeaderText("Obrigatório preenchimento de todas as informações marcadas com asterisco (*).");
-			//alert.setContentText("Careful with the next step!");
-
-			alert.showAndWait();
+            alert.setTitle("AVISO");
+            alert.setHeaderText("Erro no preenchimento de dados");
+            alert.setContentText("Obrigatório preenchimento completo de todas as informações marcadas com asterisco (*).");
+            alert.showAndWait();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
