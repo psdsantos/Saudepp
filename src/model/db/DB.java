@@ -79,6 +79,27 @@ public class DB {
 		statement.executeUpdate(sql);
 		statement.close();
 	}
+	
+	public static void insertData(String table, List<String> columns, List<String> values) throws SQLException {
+		String sql;
+		Statement statement = connection.createStatement();
+		
+		sql = String.format("insert into %s", table);
+		
+		for(String column : columns) {
+			sql += column + ",";
+		}
+		
+		sql += sql.substring(0, sql.length()-1) + String.format(") values (");
+		
+		for(String value : values) {
+			sql += "'" + value + "',";
+		}
+		
+		sql = sql.substring(0, sql.length()-1) + ")";
+		statement.executeUpdate(sql);
+		statement.close();
+	}
 
 	public static void updateData(String table, List<String> columns, List<String> newValues,
 			String pk_name, String id) throws SQLException {
