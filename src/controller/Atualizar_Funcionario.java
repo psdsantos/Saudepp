@@ -10,8 +10,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -44,10 +47,25 @@ public class Atualizar_Funcionario implements Initializable {
 	@FXML
 	private TextField email;
 	private Funcionario fun;
+	@FXML
+	private RadioButton radioButtonMedico;
+	@FXML
+	private RadioButton radioButtonAtendente;
+	@FXML
+	private TextField crm;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+	}
+	
+	@FXML
+	private void enableCrm() {
+		crm.setDisable(false);
+	}
+	@FXML
+	private void disableCrm() {
+		crm.setDisable(true);
 	}
 	
 	public void initVariable(Funcionario fun){
@@ -66,6 +84,7 @@ public class Atualizar_Funcionario implements Initializable {
 		cel.setPlainText(fun.getCelular());
 		tel.setPlainText(fun.getTelefone());
         email.setText(fun.getEmail());
+        //crm.setText(med.getCrm());
         
 	}
 	
@@ -83,6 +102,7 @@ public class Atualizar_Funcionario implements Initializable {
 			
 			dados.add(nome.getText());
 			dados.add(cpf.getPlainText());
+			if(cpf.getPlainText() == null) throw new NullPointerException();
 			if(email.getText() != null) dados.add(email.getText());
 			dados.add(dataNasc.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 			dados.add(endereco.getText());
@@ -101,9 +121,21 @@ public class Atualizar_Funcionario implements Initializable {
 			columns.add("celular");
 			columns.add("telefone");
 			
-			DB.updateData("funcionario", columns, dados, fun.getCodFuncionario().toString());
-			
+			if(radioButtonMedico.isSelected()) {
+				columns.add("crm");
+				dados.add(crm.getText());
+				DB.updateData("medico", columns, dados, "codMedico", fun.getCodFuncionario().toString());
+			} else if(radioButtonAtendente.isSelected()) {
+				DB.updateData("funcionario", columns, dados, "codFuncionario", fun.getCodFuncionario().toString());
+			}
 			closeView();
+		} catch (NullPointerException e) {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("AVISO");
+			alert.setHeaderText("Obrigatório preenchimento de todas as informações marcadas com asterisco (*).");
+			//alert.setContentText("Careful with the next step!");
+
+			alert.showAndWait();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

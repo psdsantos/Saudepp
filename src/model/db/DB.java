@@ -80,8 +80,9 @@ public class DB {
 		statement.close();
 	}
 
-	public static void updateData(String table, List<String> columns, List<String> newValues, String id)
-			throws SQLException {
+	public static void updateData(String table, List<String> columns, List<String> newValues,
+			String pk_name, String id) throws SQLException {
+		
 		String sql;
 		Statement statement = getConnection().createStatement();
 
@@ -91,7 +92,7 @@ public class DB {
 			sql += String.format("%s = '%s',", columns.get(i), newValues.get(i));
 		}
 
-		sql = sql.substring(0, sql.length() - 1) + String.format(" where id = '%s'", id);
+		sql = sql.substring(0, sql.length() - 1) + String.format(" where %s = '%s'", pk_name, id);
 		System.out.println(sql);
 		statement.executeUpdate(sql);
 		statement.close();

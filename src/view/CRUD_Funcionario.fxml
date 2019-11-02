@@ -148,9 +148,10 @@
             </HBox>
             <TableView fx:id="tableFuncionario" onMouseClicked="#showCpf">
                <columns>
-                  <TableColumn fx:id="nomeCol" editable="false" prefWidth="337.0" text="Nome" />
+                  <TableColumn fx:id="nomeCol" editable="false" prefWidth="292.0" text="Nome" />
                   <TableColumn fx:id="codCol" editable="false" minWidth="0.0" prefWidth="62.0" text="Código" />
-                  <TableColumn fx:id="cpfCol" editable="false" minWidth="0.0" prefWidth="139.0" text="CPF" />
+                  <TableColumn fx:id="cpfCol" editable="false" minWidth="0.0" prefWidth="99.0" text="CPF" />
+                  <TableColumn fx:id="crmCol" editable="false" minWidth="0.0" prefWidth="96.0" text="CRM" />
                </columns>
                <VBox.margin>
                   <Insets top="10.0" />

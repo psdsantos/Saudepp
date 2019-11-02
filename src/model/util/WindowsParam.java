@@ -1,20 +1,14 @@
 package model.util;
 
-import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
 public class WindowsParam {
 	
-	static GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-	static int width = gd.getDisplayMode().getWidth();
-	static int height = gd.getDisplayMode().getHeight();
-	
-	
 	public static int getWidth() {
-		return (int)0.85*width;
+		return (int) (0.85*GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode().getWidth());
 	}
 	public static int getHeight() {
-		return (int)0.85*height;
+		return (int) (0.85*GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode().getHeight());
 	}
 	
 	

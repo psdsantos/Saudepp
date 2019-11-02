@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -18,9 +19,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -31,6 +35,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.db.DB;
 import model.entities.Funcionario;
+import model.entities.Medico;
 import model.util.WindowsParam;
 import src.MaskedTextField;
 
@@ -45,6 +50,8 @@ public class CRUD_Funcionario implements Initializable {
     @FXML 
     private TableColumn<Funcionario, String> nomeCol;
     @FXML 
+    private TableColumn<Funcionario, String> crmCol;
+    @FXML 
     private TableColumn<Funcionario, String> cpfCol;
     @FXML 
     private MaskedTextField selectedCpf1;
@@ -58,6 +65,7 @@ public class CRUD_Funcionario implements Initializable {
 		nomeCol.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		codCol.setCellValueFactory(new PropertyValueFactory<>("codFuncionario")); 	
 		cpfCol.setCellValueFactory(new PropertyValueFactory<>("cpf")); 
+		crmCol.setCellValueFactory(new PropertyValueFactory<>("crm")); 
 	                
 		refreshTableView();
 	
@@ -99,21 +107,30 @@ public class CRUD_Funcionario implements Initializable {
 		Funcionario fun = tableFuncionario.getSelectionModel().getSelectedItem();
 		String id = fun.getCodFuncionario().toString();
 		
-		DB.deleteData("funcionario", "codFuncionario", id);
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Confirmação");
+		alert.setHeaderText("Você tem certeze que deseja deletar o funcionario selecionado?");
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == ButtonType.OK){
+			DB.deleteData("funcionario", "codFuncionario", id);
+			
+			refreshTableView();
+		} 
 		
-		refreshTableView();
 	}
 	
 	@FXML
 	private void showCpf(MouseEvent event) {
-		
+		try {
 			Funcionario fun = tableFuncionario.getSelectionModel().getSelectedItem();
 			String cpf = fun.getCpf();
 			cpf = String.format("%s.%s.%s-%s", cpf.substring(0, 3), 
 					cpf.substring(3, 6), cpf.substring(6, 9), cpf.substring(9));
 			selectedCpf1.setText(cpf);
 			selectedCpf2.setText(cpf);
-		
+		} catch (Exception e) {
+			
+		}
 	}
 	
 	private ObservableList<Funcionario>  initList() throws SQLException {
@@ -124,6 +141,21 @@ public class CRUD_Funcionario implements Initializable {
 			fun.setCodFuncionario(Integer.parseInt(rSet.getString("codFuncionario")));
 			fun.setNome(rSet.getString("nome"));
 			fun.setCpf(rSet.getString("cpf"));
+			fun.setdataNasc(toDate(rSet.getString("datanasc")));
+			fun.setEndereco(rSet.getString("endereco"));
+			fun.setCep(rSet.getString("cep"));
+			fun.setCelular(rSet.getString("celular"));
+			fun.setTelefone(rSet.getString("telefone"));
+			fun.setEmail(rSet.getString("email"));
+			obs.add(fun);
+		}
+		rSet = DB.showEntity("medico");
+		while(rSet.next()) {
+			Medico fun = new Medico();
+			fun.setCodFuncionario(Integer.parseInt(rSet.getString("codMedico")));
+			fun.setNome(rSet.getString("nome"));
+			fun.setCpf(rSet.getString("cpf"));
+			fun.setCrm(rSet.getString("crm"));
 			fun.setdataNasc(toDate(rSet.getString("datanasc")));
 			fun.setEndereco(rSet.getString("endereco"));
 			fun.setCep(rSet.getString("cep"));
@@ -157,19 +189,27 @@ public class CRUD_Funcionario implements Initializable {
             root = loader.load();
             //root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Funcionario.fxml").toUri().toURL());
             Atualizar_Funcionario controller = loader.<Atualizar_Funcionario>getController();
-		 	
+            controller.initVariable(fun);
             Stage stage = new Stage();
             stage.setTitle("Saude ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
             stage.setScene(new Scene(root));
-            stage.setHeight(WindowsParam.getHeight());
+            stage.setHeight((int) (WindowsParam.getHeight()*1.1));
             stage.setResizable(true);
             
 		 	stage.show();
-		 	controller.initVariable(fun);
-		 	} catch (Exception e) {
-			e.printStackTrace();
-		}
+		 	
+		 	}  catch (NullPointerException e) {
+		 		Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle("AVISO");
+				alert.setHeaderText("Selecione ao menos 1 (um) funcionario na tabela.");
+				//alert.setContentText("Careful with the next step!");
+
+				alert.showAndWait();
+		 	}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
 	}
 	
 	@FXML
@@ -182,10 +222,11 @@ public class CRUD_Funcionario implements Initializable {
             stage.setTitle("Saúde ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
             stage.setScene(new Scene(root));
-            stage.setHeight(WindowsParam.getHeight());
+            stage.setHeight((int) (WindowsParam.getHeight()*1.1));
             stage.setResizable(true);
             stage.show();
 			
+            //NOT WORKING
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 
         	    @Override
