@@ -3,6 +3,8 @@ package controller;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -14,6 +16,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.db.DB;
 import model.entities.Funcionario;
 import src.MaskedTextField;
 
@@ -64,7 +67,6 @@ public class Atualizar_Funcionario implements Initializable {
 		tel.setText(fun.getTelefone());
         email.setText(fun.getEmail());
         
-        
 	}
 	
 	public static final LocalDate toLocalDate (String dateString){
@@ -77,8 +79,24 @@ public class Atualizar_Funcionario implements Initializable {
 	private void updateData(ActionEvent event) {
 		try {
 			
-			closeView();
+			List<String> dados = new ArrayList<String>();
 			
+			dados.add(nome.getText());
+			dados.add(cpf.getPlainText());
+			if(email.getText() != null) dados.add(email.getText());
+			dados.add(dataNasc.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+			dados.add(endereco.getText());
+			dados.add(cep.getPlainText());
+			if(cel.getPlainText() != null) dados.add(cel.getPlainText());
+			if(tel.getPlainText() != null) dados.add(tel.getPlainText());
+			
+			List<String> columns = new ArrayList<String>();
+			
+			columns.add("nome, cpf, email, datanasc, endereco, cep, celular, telefone");
+			
+			DB.updateData("funcionario", columns, dados, fun.getCodFuncionario().toString());
+			
+			closeView();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

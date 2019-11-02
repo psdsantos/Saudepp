@@ -88,11 +88,11 @@ public class DB {
 		sql = String.format("update %s set ", table);
 
 		for (int i = 0; i < columns.size(); i++) {
-			sql += String.format("%s = '%s,", columns.get(i), newValues.get(i));
+			sql += String.format("%s = '%s',", columns.get(i), newValues.get(i));
 		}
 
-		sql = sql.substring(0, sql.length() - 1) + String.format(" where id = '%s", id);
-
+		sql = sql.substring(0, sql.length() - 1) + String.format(" where id = '%s'", id);
+		System.out.println(sql);
 		statement.executeUpdate(sql);
 		statement.close();
 	}

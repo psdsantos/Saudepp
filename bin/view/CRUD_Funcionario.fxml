@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import src.MaskedTextField?>
 
-<BorderPane fx:id="funcionarioPane" xmlns="http://javafx.com/javafx/8.0.172" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Funcionario">
+<BorderPane fx:id="funcionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CRUD_Funcionario">
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -103,7 +103,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </MaskedTextField>
-            <Button fx:id="btn_delete" mnemonicParsing="false" onAction="#deleteData" prefHeight="37.0" prefWidth="162.0" text="Deletar">
+            <Button mnemonicParsing="false" onAction="#deleteData" prefHeight="37.0" prefWidth="162.0" text="Deletar">
                <font>
                   <Font size="16.0" />
                </font>
@@ -130,15 +130,16 @@
             </Label>
             <HBox>
                <children>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../model/resources/searchIcon.jpg" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="5.0" top="3.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <TextField prefWidth="509.0">
+                  <Button mnemonicParsing="false" onAction="#onAction" onKeyTyped="#onEnter">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../model/resources/searchIcon.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <TextField fx:id="searchBar" prefWidth="509.0">
                      <font>
                         <Font size="16.0" />
                      </font>

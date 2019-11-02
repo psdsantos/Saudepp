@@ -8,6 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,8 +20,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -46,6 +50,8 @@ public class CRUD_Funcionario implements Initializable {
     private MaskedTextField selectedCpf1;
     @FXML 
     private MaskedTextField selectedCpf2;
+    @FXML
+    private TextField searchBar;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -56,6 +62,27 @@ public class CRUD_Funcionario implements Initializable {
 		refreshTableView();
 	
 		
+	}
+	
+	@FXML
+	private void onEnter(KeyEvent event) {
+		searchBar.setOnKeyPressed(new EventHandler<KeyEvent>()
+	    {
+	        @Override
+	        public void handle(KeyEvent ke)
+	        {
+	            if (ke.getCode().equals(KeyCode.ENTER))
+	            {
+	                System.out.println("foi");
+	            }
+	        }
+	    });
+	}
+	
+	@FXML
+	private void onAction(ActionEvent event) {
+		
+		System.out.println("foi");
 	}
 	
 	private void refreshTableView() {
@@ -105,6 +132,7 @@ public class CRUD_Funcionario implements Initializable {
 			fun.setEmail(rSet.getString("email"));
 			obs.add(fun);
 		}
+		DB.closeResultSet(rSet);
 		return obs;
 	}
 	
