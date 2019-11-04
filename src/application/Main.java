@@ -1,8 +1,6 @@
 package application;
 
 import java.nio.file.Paths;
-import java.sql.SQLException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

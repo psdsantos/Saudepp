@@ -17,19 +17,19 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -69,28 +69,40 @@ public class CRUD_Funcionario implements Initializable {
 	                
 		refreshTableView();
 	
-		
+		setGlobalEventHandler(searchBar);
 	}
 	
 	@FXML
-	private void onEnter(KeyEvent event) {
-		searchBar.setOnKeyPressed(new EventHandler<KeyEvent>()
-	    {
-	        @Override
-	        public void handle(KeyEvent ke)
-	        {
-	            if (ke.getCode().equals(KeyCode.ENTER))
-	            {
-	                System.out.println("foi");
-	            }
+	private void setGlobalEventHandler(Node root) {
+	    root.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
+	        if (ev.getCode() == KeyCode.ENTER) {
+	           searchClick();
+	           ev.consume(); 
 	        }
 	    });
 	}
 	
 	@FXML
-	private void onAction(ActionEvent event) {
+	private void searchClick() {
+		/*//search by id
+		int searchId = Integer.parseInt(searchBar.getText());
+		tableFuncionario.getItems().stream().filter(item -> item.getCodFuncionario() == searchId).findAny()
+		.ifPresent(item -> {
+	        tableFuncionario.getSelectionModel().select(item);
+	        tableFuncionario.scrollTo(item);
+	         showCpf();
+	    });
+		*/
 		
-		System.out.println("foi");
+		//search by name
+		String searchName = searchBar.getText();
+		tableFuncionario.getItems().stream().filter(item -> item.getNome().startsWith(searchName)).findAny()
+		.ifPresent(item -> {
+	        tableFuncionario.getSelectionModel().select(item);
+	        tableFuncionario.scrollTo(item);
+	        showCpf();
+	    });
+		
 	}
 	
 	private void refreshTableView() {
@@ -120,7 +132,7 @@ public class CRUD_Funcionario implements Initializable {
 	}
 	
 	@FXML
-	private void showCpf(MouseEvent event) {
+	private void showCpf() {
 		try {
 			Funcionario fun = tableFuncionario.getSelectionModel().getSelectedItem();
 			String cpf = fun.getCpf();
@@ -171,9 +183,8 @@ public class CRUD_Funcionario implements Initializable {
 	private Date toDate(String date) {
 		Date date1 = null;
 		try {
-			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+			date1 = new SimpleDateFormat("dd/MM/yyyy").parse(date);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return date1;

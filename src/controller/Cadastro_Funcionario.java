@@ -66,9 +66,8 @@ public class Cadastro_Funcionario implements Initializable {
 			
 			if(nome.getText().length() == 0) throw new InvalidFieldSizeException();
 			if(cpf.getPlainText().length() != 11) throw new InvalidFieldSizeException();
-			if(email.getText().length() == 0) throw new InvalidFieldSizeException();
 			if(endereco.getText().length() == 0) throw new InvalidFieldSizeException();
-			if(cep.getPlainText().length() != 9) throw new InvalidFieldSizeException();
+			if(cep.getPlainText().length() != 8) throw new InvalidFieldSizeException();
 			
 			Random gerador = new Random();
 			Integer a = gerador.nextInt(1000);
