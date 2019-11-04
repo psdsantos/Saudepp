@@ -70,6 +70,7 @@ public class CRUD_Funcionario implements Initializable {
 		refreshTableView();
 	
 		setGlobalEventHandler(searchBar);
+		
 	}
 	
 	@FXML
@@ -105,7 +106,7 @@ public class CRUD_Funcionario implements Initializable {
 		
 	}
 	
-	private void refreshTableView() {
+	public void refreshTableView() {
 		try {
 			tableFuncionario.getItems().setAll(initList());
 		} catch (SQLException e) {
@@ -201,6 +202,7 @@ public class CRUD_Funcionario implements Initializable {
             //root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Funcionario.fxml").toUri().toURL());
             Atualizar_Funcionario controller = loader.<Atualizar_Funcionario>getController();
             controller.initVariable(fun);
+            controller.setController(this);
             Stage stage = new Stage();
             stage.setTitle("Saude ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
@@ -228,7 +230,11 @@ public class CRUD_Funcionario implements Initializable {
 		try {
 			
 			Parent root;
-			root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Cadastro_Funcionario.fxml").toUri().toURL());
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Cadastro_Funcionario.fxml"));
+            root = loader.load();
+            //root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Funcionario.fxml").toUri().toURL());
+            Cadastro_Funcionario controller = loader.<Cadastro_Funcionario>getController();
+            controller.setController(this);
             Stage stage = new Stage();
             stage.setTitle("Saúde ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));

@@ -54,11 +54,16 @@ public class Atualizar_Funcionario implements Initializable {
 	private RadioButton radioButtonAtendente;
 	@FXML
 	private MaskedTextField crm;
+	private CRUD_Funcionario controller;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
 	}
+	
+	public void setController (CRUD_Funcionario controller) {
+        this.controller = controller ;
+    }
 	
 	@FXML
 	private void enableCrm() {
@@ -154,6 +159,8 @@ public class Atualizar_Funcionario implements Initializable {
 	@FXML
 	private void closeView() {
 		try {
+			
+			controller.refreshTableView();
 			
 		    Stage stage = (Stage) closeButton.getScene().getWindow();
 		    stage.close();

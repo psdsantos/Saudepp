@@ -50,10 +50,15 @@ public class Cadastro_Funcionario implements Initializable {
 	private RadioButton radioButtonMedico;
 	@FXML
 	private RadioButton radioButtonAtendente;
+	private CRUD_Funcionario controller;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+	}
+	
+	public void setController(CRUD_Funcionario controller) {
+		this.controller = controller;
 	}
 	
 	@FXML
@@ -123,7 +128,7 @@ public class Cadastro_Funcionario implements Initializable {
 	@FXML
 	private void closeView() {
 		try {
-			
+			controller.refreshTableView();
 		    Stage stage = (Stage) closeButton.getScene().getWindow();
 		    stage.close();
 			
@@ -131,4 +136,5 @@ public class Cadastro_Funcionario implements Initializable {
 			e.printStackTrace();
 		}
 	}
+
 }
