@@ -70,6 +70,7 @@ public class DB {
 			sql += "'" + value + "',";
 		}
 		sql = sql.substring(0, sql.length()-1) + ")";
+		System.out.println(sql);
 		statement.executeUpdate(sql);
 		statement.close();
 	}

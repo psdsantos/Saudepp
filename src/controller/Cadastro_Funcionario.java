@@ -95,7 +95,7 @@ public class Cadastro_Funcionario implements Initializable {
 			} else if (radioButtonMedico.isSelected()) {
 				if(crm.getPlainText().length() < 4 || crm.getPlainText().length() > 9) throw new InvalidFieldSizeException();
 				columns.add("crm");
-				dados.add(crm.getText());
+				dados.add(crm.getPlainText());
 				DB.insertData("medico", columns, dados);
 			}
 			

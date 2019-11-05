@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.db.DB;
-import model.entities.Funcionario;
+import model.entities.Medico;
 import model.exceptions.InvalidFieldSizeException;
 import model.util.DateHandling;
 import src.MaskedTextField;
@@ -47,7 +47,7 @@ public class Atualizar_Funcionario implements Initializable {
 	private MaskedTextField tel;
 	@FXML
 	private TextField email;
-	private Funcionario fun;
+	private Medico fun;
 	@FXML
 	private RadioButton radioButtonMedico;
 	@FXML
@@ -74,14 +74,19 @@ public class Atualizar_Funcionario implements Initializable {
 		crm.setDisable(true);
 	}
 	
-	public void initVariable(Funcionario fun){
+	/*public void initFun(Funcionario fun){
 		this.fun = fun;
+		fill();
+    }*/
+	
+	public void initMed(Medico med){
+		fun = med;
 		fill();
     }
 	
 	@FXML
 	private void fill() {
-		
+
 		nome.setText(fun.getNome());
 		cpf.setPlainText(fun.getCpf());
 		dataNasc.setValue(DateHandling.toLocalDate(fun.getdataNasc()));
@@ -90,7 +95,11 @@ public class Atualizar_Funcionario implements Initializable {
 		cel.setPlainText(fun.getCelular());
 		tel.setPlainText(fun.getTelefone());
         email.setText(fun.getEmail());
-        //crm.setText(med.getCrm());
+        if(fun.getCrm() != null) {  // IF IT IS MEDICO
+        	crm.setPlainText(fun.getCrm());
+        	radioButtonMedico.setSelected(true);
+        	crm.setDisable(false);
+        }
         
 	}
 	
