@@ -1,7 +1,6 @@
 package controller;
 
 import java.net.URL;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,16 +10,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.db.DB;
 import model.exceptions.InvalidFieldSizeException;
+import model.util.DateHandling;
 import src.MaskedTextField;
 
 public class Cadastro_Funcionario implements Initializable {
@@ -54,7 +54,7 @@ public class Cadastro_Funcionario implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		DateHandling.toMilitaryFormat(dataNasc);
 	}
 	
 	public void setController(CRUD_Funcionario controller) {
@@ -84,7 +84,7 @@ public class Cadastro_Funcionario implements Initializable {
 			if(radioButtonMedico.isSelected())dados.add(crm.getText());
 			dados.add(cpf.getPlainText());
 			if(email.getText() != null) dados.add(email.getText());
-			dados.add(dataNasc.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+			dados.add(dataNasc.getValue().toString());
 			dados.add(endereco.getText());
 			dados.add(cep.getPlainText());
 			if(cel.getPlainText() != null) dados.add(cel.getPlainText());

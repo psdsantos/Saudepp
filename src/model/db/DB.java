@@ -33,7 +33,7 @@ public class DB {
 	}
 	private static Properties loadProperties() {
 		Properties props = new Properties();
-		try (FileInputStream fs = new FileInputStream("src/model/db/db.properties")) {
+		try (FileInputStream fs = new FileInputStream("src/model/db/dbpedro.properties")) {
 			props.load(fs);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -101,7 +101,6 @@ public class DB {
 			sql += String.format("%s = '%s',", columns.get(i), newValues.get(i));
 		}
 		sql = sql.substring(0, sql.length() - 1) + String.format(" where %s = '%s'", pk_name, id);
-		System.out.println(sql);
 		statement.executeUpdate(sql);
 		statement.close();
 	}

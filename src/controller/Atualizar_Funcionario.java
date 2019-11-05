@@ -1,7 +1,6 @@
 package controller;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +21,7 @@ import javafx.stage.Stage;
 import model.db.DB;
 import model.entities.Funcionario;
 import model.exceptions.InvalidFieldSizeException;
+import model.util.DateHandling;
 import src.MaskedTextField;
 
 public class Atualizar_Funcionario implements Initializable {
@@ -58,7 +58,7 @@ public class Atualizar_Funcionario implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		DateHandling.toMilitaryFormat(dataNasc);
 	}
 	
 	public void setController (CRUD_Funcionario controller) {
@@ -84,6 +84,7 @@ public class Atualizar_Funcionario implements Initializable {
 		
 		nome.setText(fun.getNome());
 		cpf.setPlainText(fun.getCpf());
+		dataNasc.setValue(DateHandling.toLocalDate(fun.getdataNasc()));
 		endereco.setText(fun.getEndereco());
 		cep.setPlainText(fun.getCep());
 		cel.setPlainText(fun.getCelular());
@@ -93,17 +94,12 @@ public class Atualizar_Funcionario implements Initializable {
         
 	}
 	
-	public static final LocalDate toLocalDate (String dateString){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate localDate = LocalDate.parse(dateString, formatter);
-        return localDate;
-    }
-	
 	@FXML
 	private void updateData(ActionEvent event) {
 		try {
 			if(nome.getText().length() == 0) throw new InvalidFieldSizeException();
 			if(cpf.getPlainText().length() != 11) throw new InvalidFieldSizeException();
+			if(dataNasc.getValue() == null) throw new InvalidFieldSizeException();
 			if(endereco.getText().length() == 0) throw new InvalidFieldSizeException();
 			if(cep.getPlainText().length() != 8) throw new InvalidFieldSizeException();
 			
@@ -144,13 +140,7 @@ public class Atualizar_Funcionario implements Initializable {
             alert.setHeaderText("Erro no preenchimento de dados");
             alert.setContentText("Obrigatório preenchimento completo de todas as informações marcadas com asterisco (*).");
             alert.showAndWait();
-		} catch (NullPointerException e) {
-			Alert alert = new Alert(AlertType.WARNING);
-            alert.setTitle("AVISO");
-            alert.setHeaderText("Erro no preenchimento de dados.");
-            alert.setContentText("Obrigatório preenchimento completo de todas as informações marcadas com asterisco (*).");
-            alert.showAndWait();
-		} catch (Exception e) {
+		}  catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
