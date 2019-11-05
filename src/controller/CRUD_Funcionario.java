@@ -4,9 +4,6 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -69,11 +66,10 @@ public class CRUD_Funcionario implements Initializable {
 	                
 		refreshTableView();
 	
-		setGlobalEventHandler(searchBar);
+		setGlobalEventHandler(searchBar); // ENTER TYPED
 		
 	}
 	
-	@FXML
 	private void setGlobalEventHandler(Node root) {
 	    root.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
 	        if (ev.getCode() == KeyCode.ENTER) {
@@ -154,7 +150,7 @@ public class CRUD_Funcionario implements Initializable {
 			fun.setCodFuncionario(Integer.parseInt(rSet.getString("codFuncionario")));
 			fun.setNome(rSet.getString("nome"));
 			fun.setCpf(rSet.getString("cpf"));
-			fun.setdataNasc(toDate(rSet.getString("datanasc")));
+			fun.setdataNasc(rSet.getDate("datanasc"));
 			fun.setEndereco(rSet.getString("endereco"));
 			fun.setCep(rSet.getString("cep"));
 			fun.setCelular(rSet.getString("celular"));
@@ -169,7 +165,7 @@ public class CRUD_Funcionario implements Initializable {
 			fun.setNome(rSet.getString("nome"));
 			fun.setCpf(rSet.getString("cpf"));
 			fun.setCrm(rSet.getString("crm"));
-			fun.setdataNasc(toDate(rSet.getString("datanasc")));
+			fun.setdataNasc(rSet.getDate("datanasc"));
 			fun.setEndereco(rSet.getString("endereco"));
 			fun.setCep(rSet.getString("cep"));
 			fun.setCelular(rSet.getString("celular"));
@@ -181,15 +177,6 @@ public class CRUD_Funcionario implements Initializable {
 		return obs;
 	}
 	
-	private Date toDate(String date) {
-		Date date1 = null;
-		try {
-			date1 = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date1;
-	}
 	@FXML
 	private void loadAtualizar_FuncionarioView(ActionEvent event) {
 		
