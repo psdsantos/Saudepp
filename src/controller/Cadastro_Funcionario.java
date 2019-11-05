@@ -3,7 +3,6 @@ package controller;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -64,24 +63,15 @@ public class Cadastro_Funcionario implements Initializable {
 	@FXML
 	private void saveData(ActionEvent event) {
 		try {
-			
-			List<String> dados = new ArrayList<String>();
-			
-			// [ARMENGUE] USAR AUTO_INCREMENT
-			
+
 			if(nome.getText().length() == 0) throw new InvalidFieldSizeException();
+			if(dataNasc.getValue() == null) throw new InvalidFieldSizeException();
 			if(cpf.getPlainText().length() != 11) throw new InvalidFieldSizeException();
 			if(endereco.getText().length() == 0) throw new InvalidFieldSizeException();
 			if(cep.getPlainText().length() != 8) throw new InvalidFieldSizeException();
-			
-			Random gerador = new Random();
-			Integer a = gerador.nextInt(1000);
-			String codFun = a.toString();
-			
-			dados.add(codFun);
 		
+			List<String> dados = new ArrayList<String>();
 			dados.add(nome.getText());
-			if(radioButtonMedico.isSelected())dados.add(crm.getText());
 			dados.add(cpf.getPlainText());
 			if(email.getText() != null) dados.add(email.getText());
 			dados.add(dataNasc.getValue().toString());
@@ -90,11 +80,23 @@ public class Cadastro_Funcionario implements Initializable {
 			if(cel.getPlainText() != null) dados.add(cel.getPlainText());
 			if(tel.getPlainText() != null) dados.add(tel.getPlainText());
 			
+			List<String> columns = new ArrayList<String>();
+			columns.add("nome");
+			columns.add("cpf");
+			columns.add("email");
+			columns.add("datanasc");
+			columns.add("endereco");
+			columns.add("cep");
+			columns.add("celular");
+			columns.add("telefone");
+			
 			if(radioButtonAtendente.isSelected()) {
-				DB.insertData("funcionario", dados);
+				DB.insertData("funcionario", columns, dados);
 			} else if (radioButtonMedico.isSelected()) {
 				if(crm.getPlainText().length() < 4 || crm.getPlainText().length() > 9) throw new InvalidFieldSizeException();
-				DB.insertData("medico", dados);
+				columns.add("crm");
+				dados.add(crm.getText());
+				DB.insertData("medico", columns, dados);
 			}
 			
 			closeView();
@@ -105,12 +107,6 @@ public class Cadastro_Funcionario implements Initializable {
             alert.setHeaderText("Erro no preenchimento de dados");
             alert.setContentText("Obrigatório preenchimento completo de todas as informações marcadas com asterisco (*).");
             alert.showAndWait();
-		} catch (NullPointerException e) {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("AVISO");
-			alert.setHeaderText("Erro no preenchimento de dados");
-			alert.setContentText("Obrigatório preenchimento de todas as informações marcadas com asterisco (*).");
-			alert.showAndWait();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
