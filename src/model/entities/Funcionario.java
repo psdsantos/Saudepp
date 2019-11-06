@@ -5,6 +5,7 @@ import java.util.Date;
 public class Funcionario extends Pessoa {
 	
 	private Integer codFuncionario;
+	private String crm;
 
 	public Funcionario() {
 		super();
@@ -22,6 +23,14 @@ public class Funcionario extends Pessoa {
 
 	public void setCodFuncionario(Integer codFuncionario) {
 		this.codFuncionario = codFuncionario;
+	}
+	
+	public String getCrm() {
+		return crm;
+	}
+
+	public void setCrm(String crm) {
+		this.crm = crm;
 	}
 	
 }

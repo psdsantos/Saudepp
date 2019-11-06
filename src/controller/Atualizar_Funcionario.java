@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.db.DB;
-import model.entities.Medico;
+import model.entities.Funcionario;
 import model.exceptions.InvalidFieldSizeException;
 import model.util.DateHandling;
 import src.MaskedTextField;
@@ -47,7 +47,7 @@ public class Atualizar_Funcionario implements Initializable {
 	private MaskedTextField tel;
 	@FXML
 	private TextField email;
-	private Medico fun;
+	private Funcionario fun;
 	@FXML
 	private RadioButton radioButtonMedico;
 	@FXML
@@ -74,13 +74,8 @@ public class Atualizar_Funcionario implements Initializable {
 		crm.setDisable(true);
 	}
 	
-	/*public void initFun(Funcionario fun){
+	public void initFun(Funcionario fun){
 		this.fun = fun;
-		fill();
-    }*/
-	
-	public void initMed(Medico med){
-		fun = med;
 		fill();
     }
 	
@@ -95,7 +90,7 @@ public class Atualizar_Funcionario implements Initializable {
 		cel.setPlainText(fun.getCelular());
 		tel.setPlainText(fun.getTelefone());
         email.setText(fun.getEmail());
-        if(fun.getCrm() != null) {  // IF IT IS MEDICO
+        if(fun.getCrm() == "" || fun.getCrm() == null) {  // IF IT IS Funcionario
         	crm.setPlainText(fun.getCrm());
         	radioButtonMedico.setSelected(true);
         	crm.setDisable(false);
@@ -138,10 +133,12 @@ public class Atualizar_Funcionario implements Initializable {
 				if(crm.getPlainText().length() < 4) throw new InvalidFieldSizeException();
 				columns.add("crm");
 				dados.add(crm.getPlainText());
-				DB.updateData("medico", columns, dados, "codMedico", fun.getCodFuncionario().toString());
 			} else if(radioButtonAtendente.isSelected()) {
-				DB.updateData("funcionario", columns, dados, "codFuncionario", fun.getCodFuncionario().toString());
+				// DELETAR CRM
+				fun.setCrm(null);
+				DB.updateData("funcionario", "crm", "", "codFuncionario", fun.getCodFuncionario().toString());
 			}
+			DB.updateData("funcionario", columns, dados, "codFuncionario", fun.getCodFuncionario().toString());
 			closeView();
 		} catch(InvalidFieldSizeException e) {
 			Alert alert = new Alert(AlertType.WARNING);

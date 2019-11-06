@@ -32,7 +32,6 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.db.DB;
 import model.entities.Funcionario;
-import model.entities.Medico;
 import model.util.WindowsParam;
 import src.MaskedTextField;
 
@@ -41,7 +40,7 @@ public class CRUD_Funcionario implements Initializable {
 	@FXML
 	private BorderPane funcionarioPane;
 	@FXML 
-	private TableView<Medico> tableFuncionario;
+	private TableView<Funcionario> tableFuncionario;
 	@FXML 
 	private TableColumn<Funcionario, Integer> codCol;
     @FXML 
@@ -131,7 +130,7 @@ public class CRUD_Funcionario implements Initializable {
 	@FXML
 	private void showCpf() {
 		try {
-			Medico fun = tableFuncionario.getSelectionModel().getSelectedItem();
+			Funcionario fun = tableFuncionario.getSelectionModel().getSelectedItem();
 			String cpf = fun.getCpf();
 			cpf = String.format("%s.%s.%s-%s", cpf.substring(0, 3), 
 					cpf.substring(3, 6), cpf.substring(6, 9), cpf.substring(9));
@@ -142,26 +141,12 @@ public class CRUD_Funcionario implements Initializable {
 		}
 	}
 	
-	private ObservableList<Medico>  initList() throws SQLException {
-		ObservableList<Medico> obs = FXCollections.observableArrayList();
+	private ObservableList<Funcionario>  initList() throws SQLException {
+		ObservableList<Funcionario> obs = FXCollections.observableArrayList();
 		ResultSet rSet = DB.showEntity("funcionario");
 		while(rSet.next()) {
-			Medico fun = new Medico();
+			Funcionario fun = new Funcionario();
 			fun.setCodFuncionario(Integer.parseInt(rSet.getString("codFuncionario")));
-			fun.setNome(rSet.getString("nome"));
-			fun.setCpf(rSet.getString("cpf"));
-			fun.setdataNasc(rSet.getDate("datanasc"));
-			fun.setEndereco(rSet.getString("endereco"));
-			fun.setCep(rSet.getString("cep"));
-			fun.setCelular(rSet.getString("celular"));
-			fun.setTelefone(rSet.getString("telefone"));
-			fun.setEmail(rSet.getString("email"));
-			obs.add(fun);
-		}
-		rSet = DB.showEntity("medico");
-		while(rSet.next()) {
-			Medico fun = new Medico();
-			fun.setCodFuncionario(Integer.parseInt(rSet.getString("codMedico")));
 			fun.setNome(rSet.getString("nome"));
 			fun.setCpf(rSet.getString("cpf"));
 			fun.setCrm(rSet.getString("crm"));
@@ -183,14 +168,13 @@ public class CRUD_Funcionario implements Initializable {
 		try {
 			Parent root;
 			
-    		//Funcionario fun = tableFuncionario.getSelectionModel().getSelectedItem();
-    		Medico fun = tableFuncionario.getSelectionModel().getSelectedItem();
+    		Funcionario fun = tableFuncionario.getSelectionModel().getSelectedItem();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Atualizar_Funcionario.fxml"));
             root = loader.load();
             //root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Funcionario.fxml").toUri().toURL());
             Atualizar_Funcionario controller = loader.<Atualizar_Funcionario>getController();
             //controller.initFun();
-            controller.initMed(fun);
+            controller.initFun(fun);
             controller.setController(this);
             Stage stage = new Stage();
             stage.setTitle("Saude ++");

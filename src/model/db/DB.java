@@ -70,7 +70,6 @@ public class DB {
 			sql += "'" + value + "',";
 		}
 		sql = sql.substring(0, sql.length()-1) + ")";
-		System.out.println(sql);
 		statement.executeUpdate(sql);
 		statement.close();
 	}
@@ -88,6 +87,21 @@ public class DB {
 		statement.executeUpdate(sql);
 		statement.close();
 	}
+	
+	public static void updateData(String table, String columns, String newValues,
+			String pk_name, String id) throws SQLException {
+		
+		String sql;
+		Statement statement = getConnection().createStatement();
+		sql = String.format("update %s set ", table);
+		
+		sql += String.format("%s = '%s',", columns, newValues);
+		
+		sql = sql.substring(0, sql.length() - 1) + String.format(" where %s = '%s'", pk_name, id);
+		statement.executeUpdate(sql);
+		statement.close();
+	}
+	
 	public static void deleteData(String table, String pk_name, String id) throws SQLException {
 		Statement statement = getConnection().createStatement();
 		String sql = String.format("delete from %s where %s = '%s'", table, pk_name, id);
