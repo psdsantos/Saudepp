@@ -115,6 +115,7 @@ public class CRUD_Paciente implements Initializable {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Confirmação");
 		alert.setHeaderText("Você tem certeze que deseja deletar o Paciente selecionado?");
+		alert.setContentText("Nome: " + pac.getNome() + "\nCPF: " + pac.getCpf());
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == ButtonType.OK){
 			DB.deleteData("Paciente", "codPaciente", id);
@@ -203,7 +204,13 @@ public class CRUD_Paciente implements Initializable {
             stage.setResizable(true);
             stage.show();
 			
-		} catch (Exception e) {
+		} catch (NullPointerException e) {
+	 		Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("AVISO");
+			alert.setHeaderText("Selecione ao menos 1 (um) funcionario na tabela.");
+			alert.showAndWait();
+			e.printStackTrace();
+	 	} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
