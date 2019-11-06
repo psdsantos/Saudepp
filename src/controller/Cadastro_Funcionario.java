@@ -61,6 +61,15 @@ public class Cadastro_Funcionario implements Initializable {
 	}
 	
 	@FXML
+	private void enableCrm() {
+		crm.setDisable(false);
+	}
+	@FXML
+	private void disableCrm() {
+		crm.setDisable(true);
+	}
+	
+	@FXML
 	private void saveData(ActionEvent event) {
 		try {
 
