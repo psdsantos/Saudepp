@@ -55,7 +55,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <MaskedTextField mask="###.###.###-##" plainText="">
+            <MaskedTextField fx:id="selectedCpf1" mask="###.###.###-##" plainText="">
                <font>
                   <Font size="14.0" />
                </font>
@@ -95,7 +95,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <MaskedTextField mask="###.###.###-##" plainText="">
+            <MaskedTextField fx:id="selectedCpf2" mask="###.###.###-##" plainText="" text="___.___.___-__">
                <font>
                   <Font size="14.0" />
                </font>
@@ -103,7 +103,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </MaskedTextField>
-            <Button fx:id="btn_delete" mnemonicParsing="false" prefHeight="37.0" prefWidth="162.0" text="Deletar">
+            <Button mnemonicParsing="false" onAction="#deleteData" prefHeight="37.0" prefWidth="162.0" text="Deletar">
                <font>
                   <Font size="16.0" />
                </font>
@@ -130,7 +130,7 @@
             </Label>
             <HBox>
                <children>
-                  <Button mnemonicParsing="false" onAction="#onAction" onKeyTyped="#onEnter">
+                  <Button mnemonicParsing="false" onAction="#searchClick">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -139,21 +139,19 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <TextField prefWidth="509.0">
+                  <TextField fx:id="searchBar" prefWidth="509.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
                </children>
             </HBox>
-            <TableView>
+            <TableView fx:id="tablePaciente" onMouseClicked="#showCpf">
                <columns>
-                  <TableColumn prefWidth="349.0" text="Nome" />
-                  <TableColumn minWidth="0.0" prefWidth="183.0" text="Código" />
+                  <TableColumn fx:id="nomeCol" editable="false" prefWidth="338.0" text="Nome" />
+                  <TableColumn fx:id="codCol" editable="false" minWidth="0.0" prefWidth="84.0" text="Código" />
+                  <TableColumn fx:id="cpfCol" editable="false" minWidth="0.0" prefWidth="127.0" text="CPF" />
                </columns>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
             </TableView>
             <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAtendenteView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
                <font>

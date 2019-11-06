@@ -1,6 +1,7 @@
 package controller;
 
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -17,18 +18,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.db.DB;
+import model.entities.Paciente;
 import model.exceptions.InvalidFieldSizeException;
+import model.util.DateHandling;
 import src.MaskedTextField;
 
-public class Cadastro_Paciente implements Initializable {
+public class Atualizar_Paciente implements Initializable {
 	@FXML
 	private BorderPane cadastroPacientePane;
 	@FXML
 	private Button closeButton;
 	@FXML
-	private TextField nome;
+	private Button saveButton;
 	@FXML
-	private MaskedTextField crm;
+	private TextField nome;
 	@FXML
 	private MaskedTextField cpf;
 	@FXML
@@ -43,38 +46,70 @@ public class Cadastro_Paciente implements Initializable {
 	private MaskedTextField tel;
 	@FXML
 	private TextField email;
+	private Paciente pac;
+	@FXML
+	private MaskedTextField crm;
 	private CRUD_Paciente controller;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		DateHandling.toMilitaryFormat(dataNasc);
 	}
 	
-	public void setController(CRUD_Paciente controller) {
-		this.controller = controller;
+	public void setController (CRUD_Paciente controller) {
+        this.controller = controller ;
+    }
+	
+	@FXML
+	private void enableCrm() {
+		crm.setDisable(false);
+	}
+	@FXML
+	private void disableCrm() {
+		crm.setDisable(true);
+	}
+	
+	public void initPac(Paciente pac){
+		this.pac = pac;
+		fill();
+    }
+	
+	@FXML
+	private void fill() {
+
+		nome.setText(pac.getNome());
+		cpf.setPlainText(pac.getCpf());
+		dataNasc.setValue(DateHandling.toLocalDate(pac.getdataNasc()));
+		endereco.setText(pac.getEndereco());
+		cep.setPlainText(pac.getCep());
+		cel.setPlainText(pac.getCelular());
+		tel.setPlainText(pac.getTelefone());
+        email.setText(pac.getEmail());
+        
 	}
 	
 	@FXML
 	private void saveData(ActionEvent event) {
 		try {
-
 			if(nome.getText().length() == 0) throw new InvalidFieldSizeException();
-			if(dataNasc.getValue() == null) throw new InvalidFieldSizeException();
 			if(cpf.getPlainText().length() != 11) throw new InvalidFieldSizeException();
+			if(dataNasc.getValue() == null) throw new InvalidFieldSizeException();
 			if(endereco.getText().length() == 0) throw new InvalidFieldSizeException();
 			if(cep.getPlainText().length() != 8) throw new InvalidFieldSizeException();
-		
+			
 			List<String> dados = new ArrayList<String>();
+			
 			dados.add(nome.getText());
 			dados.add(cpf.getPlainText());
-			if(email.getText() != null) dados.add(email.getText());
-			dados.add(dataNasc.getValue().toString());
+			dados.add(email.getText());
+			dados.add(dataNasc.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 			dados.add(endereco.getText());
 			dados.add(cep.getPlainText());
-			if(cel.getPlainText() != null) dados.add(cel.getPlainText());
-			if(tel.getPlainText() != null) dados.add(tel.getPlainText());
+			dados.add(cel.getPlainText());
+			dados.add(tel.getPlainText());
 			
 			List<String> columns = new ArrayList<String>();
+			
 			columns.add("nome");
 			columns.add("cpf");
 			columns.add("email");
@@ -84,17 +119,15 @@ public class Cadastro_Paciente implements Initializable {
 			columns.add("celular");
 			columns.add("telefone");
 			
-			DB.insertData("paciente", columns, dados);
-			
+			DB.updateData("Paciente", columns, dados, "codPaciente", pac.getCodPaciente().toString());
 			closeView();
-			
 		} catch(InvalidFieldSizeException e) {
 			Alert alert = new Alert(AlertType.WARNING);
             alert.setTitle("AVISO");
             alert.setHeaderText("Erro no preenchimento de dados");
             alert.setContentText("Obrigatório preenchimento completo de todas as informações marcadas com asterisco (*).");
             alert.showAndWait();
-		} catch (Exception e) {
+		}  catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -103,6 +136,7 @@ public class Cadastro_Paciente implements Initializable {
 	private void closeView() {
 		try {
 			controller.refreshTableView();
+			
 		    Stage stage = (Stage) closeButton.getScene().getWindow();
 		    stage.close();
 			
@@ -110,5 +144,4 @@ public class Cadastro_Paciente implements Initializable {
 			e.printStackTrace();
 		}
 	}
-
 }
