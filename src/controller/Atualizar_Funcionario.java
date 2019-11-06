@@ -90,7 +90,7 @@ public class Atualizar_Funcionario implements Initializable {
 		cel.setPlainText(fun.getCelular());
 		tel.setPlainText(fun.getTelefone());
         email.setText(fun.getEmail());
-        if(fun.getCrm() == "" || fun.getCrm() == null) {  // IF IT IS Funcionario
+        if(fun.getCrm() != "" && fun.getCrm() != null) {  // IF IT IS Funcionario
         	crm.setPlainText(fun.getCrm());
         	radioButtonMedico.setSelected(true);
         	crm.setDisable(false);
