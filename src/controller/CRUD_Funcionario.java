@@ -118,6 +118,7 @@ public class CRUD_Funcionario implements Initializable {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Confirmação");
 		alert.setHeaderText("Você tem certeze que deseja deletar o funcionario selecionado?");
+		alert.setContentText("Nome: " + fun.getNome() + "\nCPF: " + fun.getCpf());
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == ButtonType.OK){
 			DB.deleteData("funcionario", "codFuncionario", id);
@@ -173,7 +174,6 @@ public class CRUD_Funcionario implements Initializable {
             root = loader.load();
             //root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Funcionario.fxml").toUri().toURL());
             Atualizar_Funcionario controller = loader.<Atualizar_Funcionario>getController();
-            //controller.initFun();
             controller.initFun(fun);
             controller.setController(this);
             Stage stage = new Stage();
@@ -189,8 +189,6 @@ public class CRUD_Funcionario implements Initializable {
 		 		Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("AVISO");
 				alert.setHeaderText("Selecione ao menos 1 (um) funcionario na tabela.");
-				//alert.setContentText("Careful with the next step!");
-
 				alert.showAndWait();
 				e.printStackTrace();
 		 	}
@@ -206,7 +204,6 @@ public class CRUD_Funcionario implements Initializable {
 			Parent root;
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Cadastro_Funcionario.fxml"));
             root = loader.load();
-            //root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Funcionario.fxml").toUri().toURL());
             Cadastro_Funcionario controller = loader.<Cadastro_Funcionario>getController();
             controller.setController(this);
             Stage stage = new Stage();
