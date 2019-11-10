@@ -8,41 +8,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
+import javafx.scene.control.DatePicker;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-import model.util.WindowsParam;
+import model.util.DateHandling;
 
 public class Agenda_Admin implements Initializable {
 
 	@FXML
 	private BorderPane agendaPane;
+	@FXML
+	private DatePicker datePicker;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	               
-	                
-	}
-	
-	
-	@FXML
-	private void loadCadastro_FuncionarioView(ActionEvent event) {
-		try {
-			
-			Parent root;
-			root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Cadastro_Funcionario.fxml").toUri().toURL());
-            Stage stage = new Stage();
-            stage.setTitle("Saúde ++");
-            stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
-            stage.setScene(new Scene(root, 505, WindowsParam.getHeight()));
-            stage.setResizable(false);
-            stage.show();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		DateHandling.toMilitaryFormat(datePicker);
 	}
 	
 	@FXML

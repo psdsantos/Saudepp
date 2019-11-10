@@ -25,7 +25,7 @@
             </Label>
             <Label text="Modo de exibição">
                <font>
-                  <Font name="Impact" size="18.0" />
+                  <Font name="Impact" size="28.0" />
                </font>
                <VBox.margin>
                   <Insets top="30.0" />
@@ -53,10 +53,10 @@
             </ToggleButtonGroup>
             <Label text="Ordernar por:">
                <font>
-                  <Font name="Impact" size="18.0" />
+                  <Font name="Impact" size="28.0" />
                </font>
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets top="30.0" />
                </VBox.margin>
             </Label>
             <ComboBox prefWidth="150.0">
@@ -66,15 +66,15 @@
             </ComboBox>
             <Label text="Filtrar por:">
                <font>
-                  <Font name="Impact" size="18.0" />
+                  <Font name="Impact" size="28.0" />
                </font>
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets top="30.0" />
                </VBox.margin>
             </Label>
             <Label text="Paciente">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font>
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
@@ -87,7 +87,7 @@
             </TextField>
             <Label text="Data">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font>
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
@@ -100,7 +100,7 @@
             </DatePicker>
             <Label text="Médico">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font>
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
@@ -121,9 +121,9 @@
          <children>
             <TableView prefHeight="478.0" prefWidth="595.0">
                <columns>
-                  <TableColumn prefWidth="108.0" text="Data" />
-                  <TableColumn prefWidth="174.0" text="Paciente" />
-                  <TableColumn minWidth="0.0" prefWidth="132.0" text="Médico" />
+                  <TableColumn prefWidth="100.0" text="Data" />
+                  <TableColumn prefWidth="247.0" text="Paciente" />
+                  <TableColumn minWidth="0.0" prefWidth="247.0" text="Médico" />
                </columns>
             </TableView>
             <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAdministradorView" prefHeight="25.0" prefWidth="322.0" text="Retornar">

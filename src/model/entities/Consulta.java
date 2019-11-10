@@ -1,41 +1,43 @@
 package model.entities;
 
-import java.sql.Date;
-
 public class Consulta {
-	private Paciente paciente;
-	private Funcionario medico;
-	private Date data;
+	private String paciente;
+	private String medico;
+	private String data;
 	
-	public Consulta(Paciente paciente, Funcionario medico, Date data) {
+	public Consulta(String paciente, String medico, String data) {
 		super();
 		this.paciente = paciente;
 		this.medico = medico;
 		this.data = data;
 	}
 
-	public Paciente getPaciente() {
+	public Consulta() {
+		super();
+	}
+
+	public String getPaciente() {
 		return paciente;
 	}
 
-	public void setPaciente(Paciente paciente) {
+	public void setPaciente(String paciente) {
 		this.paciente = paciente;
 	}
 
-	public Funcionario getMedico() {
+	public String getMedico() {
 		return medico;
 	}
 
-	public void setMedico(Funcionario medico) {
+	public void setMedico(String medico) {
 		this.medico = medico;
 	}
 
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setData(String date) {
+		this.data = date;
 	}
 	
 }

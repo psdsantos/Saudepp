@@ -73,7 +73,6 @@ public class CRUD_Paciente implements Initializable {
 	           ev.consume(); 
 	        }
 	    });
-<<<<<<< HEAD
 	}
 	
 	@FXML
@@ -108,42 +107,6 @@ public class CRUD_Paciente implements Initializable {
 	}
 	
 	@FXML
-=======
-	}
-	
-	@FXML
-	private void searchClick() {
-		/*//search by id
-		int searchId = Integer.parseInt(searchBar.getText());
-		tablePaciente.getItems().stream().filter(item -> item.getCodPaciente() == searchId).findAny()
-		.ifPresent(item -> {
-	        tablePaciente.getSelectionModel().select(item);
-	        tablePaciente.scrollTo(item);
-	         showCpf();
-	    });
-		*/
-		
-		//search by name
-		String searchName = searchBar.getText().toLowerCase();
-		tablePaciente.getItems().stream().filter(item -> item.getNome().toLowerCase().startsWith(searchName))
-		.findAny().ifPresent(item -> {
-	        tablePaciente.getSelectionModel().select(item);
-	        tablePaciente.scrollTo(item);
-	        showCpf();
-	    });
-		
-	}
-	
-	public void refreshTableView() {
-		try {
-			tablePaciente.getItems().setAll(initList());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	@FXML
->>>>>>> b5ea5d462d27e71cd9641b529c7ac66c1daa5dcb
 	private void deleteData(ActionEvent event) throws SQLException {
 		
 		Paciente pac = tablePaciente.getSelectionModel().getSelectedItem();
@@ -152,10 +115,7 @@ public class CRUD_Paciente implements Initializable {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Confirmação");
 		alert.setHeaderText("Você tem certeze que deseja deletar o Paciente selecionado?");
-<<<<<<< HEAD
-=======
 		alert.setContentText("Nome: " + pac.getNome() + "\nCPF: " + pac.getCpf());
->>>>>>> b5ea5d462d27e71cd9641b529c7ac66c1daa5dcb
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == ButtonType.OK){
 			DB.deleteData("Paciente", "codPaciente", id);

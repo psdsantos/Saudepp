@@ -10,6 +10,15 @@ import javafx.scene.control.DatePicker;
 import javafx.util.StringConverter;
 
 public class DateHandling {
+	
+	public static String toMilitaryFormat(String date) { 
+		
+		date = String.format("%s/%s/%s", date.substring(8), date.substring(5, 7), date.substring(0, 4));
+		
+		return date;
+		
+	}
+	
 	public static void toMilitaryFormat(DatePicker dp) { 
 		dp.setConverter(new StringConverter<LocalDate>() {
 	     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
