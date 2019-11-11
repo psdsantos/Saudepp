@@ -153,7 +153,7 @@
                   <TableColumn fx:id="cpfCol" editable="false" minWidth="0.0" prefWidth="127.0" text="CPF" />
                </columns>
             </TableView>
-            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAtendenteView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
+            <Button styleClass="secondary" mnemonicParsing="false" onAction="#loadAtendenteView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

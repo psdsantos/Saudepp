@@ -66,7 +66,7 @@ public class Agenda_Atendente implements Initializable {
 		while(rSet.next()) {
 			Consulta cons = new Consulta();
 			cons.setPaciente(rSet.getString("paciente"));
-			cons.setData(DateHandling.toMilitaryFormat(rSet.getString("data")));
+			cons.setData(DateHandling.toMilitaryFormat(rSet.getDate("data")));
 			cons.setMedico(rSet.getString("medico"));
 			obs.add(cons);
 		}

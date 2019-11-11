@@ -11,9 +11,9 @@ import javafx.util.StringConverter;
 
 public class DateHandling {
 	
-	public static String toMilitaryFormat(String date) { 
+	public static Date toMilitaryFormat(Date date) { 
 		
-		date = String.format("%s/%s/%s", date.substring(8), date.substring(5, 7), date.substring(0, 4));
+		//date = String.format("%s/%s/%s", date.substring(8), date.substring(5, 7), date.substring(0, 4));
 		
 		return date;
 		

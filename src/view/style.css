@@ -1,6 +1,6 @@
 .root, #formulario {
     -fx-background-image: url("/model/resources/background.png");
-    -fx-background-size: cover;
+    -fx-background-size: stretch;
     -fx-background-repeat: no-repeat;   
     -fx-background-position: center center;
 }
@@ -21,4 +21,45 @@
 
 .date-picker, .text-field {
 	-fx-font-size: 14px;
+}
+
+.secondary {
+    -fx-background-color: 
+        #a0ada3,
+        linear-gradient(to right, #777, #999);
+    -fx-background-radius: 50;
+    -fx-padding: 15 30 15 30;
+    -fx-font-family: "Impact";
+    -fx-font-size: 24px;
+    -fx-text-fill: #EEE;
+}
+
+.primary {
+    -fx-background-color: 
+        #a0ada3,
+        linear-gradient(to right, #649650, #73b05b 90%);
+    -fx-background-radius: 50;
+    -fx-font-family: "Impact";
+    -fx-font-size: 24px;
+    -fx-text-fill: #EEE;
+}
+
+.danger {
+    -fx-background-color: 
+        #a0ada3,
+        linear-gradient(to right, #649650, #73b05b 90%);
+    -fx-background-radius: 50;
+    -fx-font-family: "Impact";
+    -fx-font-size: 24px;
+    -fx-text-fill: #EEE;
+}
+
+.primary_blue {
+    -fx-background-color: 
+        #a0ada3,
+        linear-gradient(to right, #649650, #73b05b 90%);
+    -fx-background-radius: 50;
+    -fx-font-family: "Impact";
+    -fx-font-size: 24px;
+    -fx-text-fill: #EEE;
 }

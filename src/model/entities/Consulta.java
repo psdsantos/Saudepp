@@ -1,11 +1,13 @@
 package model.entities;
 
+import java.util.Date;
+
 public class Consulta {
 	private String paciente;
 	private String medico;
-	private String data;
+	private Date data;
 	
-	public Consulta(String paciente, String medico, String data) {
+	public Consulta(String paciente, String medico, Date data) {
 		super();
 		this.paciente = paciente;
 		this.medico = medico;
@@ -32,11 +34,11 @@ public class Consulta {
 		this.medico = medico;
 	}
 
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(String date) {
+	public void setData(Date date) {
 		this.data = date;
 	}
 	

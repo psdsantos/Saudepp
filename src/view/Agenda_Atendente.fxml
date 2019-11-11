@@ -118,7 +118,7 @@
             </TableView>
             <HBox prefHeight="13.0" prefWidth="595.0">
                <children>
-                  <Button fx:id="loadCRUD_ConsultaView" mnemonicParsing="false" onAction="#loadCRUD_AgendaView" prefWidth="300.0" text="Gerenciar consultas">
+                  <Button styleClass="primary" mnemonicParsing="false" onAction="#loadCRUD_AgendaView" prefWidth="300.0" text="Gerenciar consultas">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -126,7 +126,7 @@
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAtendenteView" prefWidth="300.0" text="Retornar">
+                  <Button styleClass="secondary" mnemonicParsing="false" onAction="#loadAtendenteView" prefWidth="300.0" text="Retornar">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>

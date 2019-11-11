@@ -153,12 +153,12 @@
                   <ToggleButtonGroup selectionType="SINGLE" />
                   <HBox prefHeight="37.0" prefWidth="445.0">
                      <children>
-                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveData" prefHeight="37.0" prefWidth="150.0" text="Salvar">
+                        <Button styleClass="primary_blue" mnemonicParsing="false" onAction="#saveData" prefHeight="37.0" prefWidth="150.0" text="Salvar">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeView" prefHeight="37.0" prefWidth="150.0" text="Cancelar">
+                        <Button styleClass="danger" mnemonicParsing="false" onAction="#closeView" prefHeight="37.0" prefWidth="150.0" text="Cancelar">
                            <font>
                               <Font size="16.0" />
                            </font>

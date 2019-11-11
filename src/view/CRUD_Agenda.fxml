@@ -115,7 +115,7 @@
             </Label>
             <HBox>
                <children>
-                  <Button mnemonicParsing="false" onAction="#onAction" onKeyTyped="#onEnter">
+                  <Button mnemonicParsing="false" >
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -140,7 +140,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </TableView>
-            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
+            <Button styleClass="secondary" mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

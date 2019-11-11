@@ -19,30 +19,30 @@
          </BorderPane.margin>
       </Label>
    </top>
-   <right>
+   <left>
       <VBox fx:id="vbox" prefHeight="346.0" prefWidth="180.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="60.0" prefWidth="213.0" text="Ver agenda">
+            <Button mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="60.0" prefWidth="213.0" styleClass="primary" text="AGENDA">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
             <Region prefHeight="30.0" prefWidth="212.0" />
-            <Button mnemonicParsing="false" onAction="#loadCRUD_FuncionarioView" prefHeight="60.0" prefWidth="212.0" text="Gerenciar funcionários">
+            <Button mnemonicParsing="false" onAction="#loadCRUD_FuncionarioView" prefHeight="60.0" prefWidth="212.0" styleClass="primary" text="FUNCIONÁRIOS">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
             <Region prefHeight="30.0" prefWidth="212.0" />
-            <Button mnemonicParsing="false" onAction="#loadLoginView" prefHeight="60.0" prefWidth="212.0" text="Sign out">
+            <Button mnemonicParsing="false" onAction="#loadLoginView" prefHeight="60.0" prefWidth="212.0" styleClass="secondary" text="LOG OUT">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
          </children>
          <BorderPane.margin>
-            <Insets right="20.0" />
+            <Insets left="20.0" right="20.0" top="30.0" />
          </BorderPane.margin>
       </VBox>
-   </right>
+   </left>
 </BorderPane>

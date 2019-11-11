@@ -1,6 +1,7 @@
 package application;
 
 import java.nio.file.Paths;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,6 +18,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
+		
 		try {
 			BorderPane root = new BorderPane();
 			
@@ -29,7 +31,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Saude++");
 			primaryStage.setResizable(true);
-			primaryStage.getIcons().add(new Image("model/resources/saudeIcon.png"));
+			primaryStage.getIcons().add(new Image("model/resources/icon.png"));
 			primaryStage.show();
 			
 			DB.closeConnection();

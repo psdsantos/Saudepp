@@ -93,7 +93,7 @@
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <DatePicker>
+            <DatePicker fx:id="datePicker">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
@@ -119,14 +119,14 @@
    <right>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <TableView prefHeight="478.0" prefWidth="595.0">
+            <TableView fx:id="tableConsulta" prefHeight="478.0" prefWidth="595.0">
                <columns>
-                  <TableColumn prefWidth="100.0" text="Data" />
-                  <TableColumn prefWidth="247.0" text="Paciente" />
-                  <TableColumn minWidth="0.0" prefWidth="247.0" text="Médico" />
+                  <TableColumn fx:id="dateCol" prefWidth="100.0" text="Data" />
+                  <TableColumn fx:id="pacCol" prefWidth="247.0" text="Paciente" />
+                  <TableColumn fx:id="medCol" minWidth="0.0" prefWidth="247.0" text="Médico" />
                </columns>
             </TableView>
-            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAdministradorView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
+            <Button styleClass="secondary" mnemonicParsing="false" onAction="#loadAdministradorView" prefHeight="25.0" prefWidth="322.0" styleClass="secondary" text="Retornar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
