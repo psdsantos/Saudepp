@@ -176,7 +176,7 @@ public class CRUD_Paciente implements Initializable {
             stage.setTitle("Saúde ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
             stage.setScene(new Scene(root));
-            stage.setHeight(WindowsParam.getHeight());
+            stage.setHeight((int) (WindowsParam.getHeight()*1.1));
             stage.setResizable(true);
             stage.show();
 			
@@ -200,7 +200,7 @@ public class CRUD_Paciente implements Initializable {
             stage.setTitle("Saúde ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
             stage.setScene(new Scene(root));
-            stage.setHeight(WindowsParam.getHeight());
+            stage.setHeight((int) (WindowsParam.getHeight()*1.1));
             stage.setResizable(true);
             stage.show();
 			

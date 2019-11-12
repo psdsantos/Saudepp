@@ -25,7 +25,7 @@ import src.MaskedTextField;
 
 public class Atualizar_Paciente implements Initializable {
 	@FXML
-	private BorderPane cadastroPacientePane;
+	private BorderPane atualizarPacientePane;
 	@FXML
 	private Button closeButton;
 	@FXML

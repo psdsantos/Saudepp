@@ -12,13 +12,6 @@
 	-fx-background-position: 30%;
 }
 
-#btn_delete {
-	-fx-background-image: url("/model/resources/deleteIcon.png");
-	-fx-background-size: 20px;
-	-fx-background-repeat: no-repeat;
-	-fx-background-position: 20%;
-}
-
 .date-picker, .text-field {
 	-fx-font-size: 14px;
 }
@@ -40,6 +33,7 @@
         linear-gradient(to right, #649650, #73b05b 90%);
     -fx-background-radius: 50;
     -fx-font-family: "Impact";
+    -fx-padding: 15 30 15 30;
     -fx-font-size: 24px;
     -fx-text-fill: #EEE;
 }
@@ -47,9 +41,10 @@
 .danger {
     -fx-background-color: 
         #a0ada3,
-        linear-gradient(to right, #649650, #73b05b 90%);
+        linear-gradient(to right, #d10a0a, ##f20f0f 90%);
     -fx-background-radius: 50;
     -fx-font-family: "Impact";
+    -fx-padding: 15 30 15 30;
     -fx-font-size: 24px;
     -fx-text-fill: #EEE;
 }
@@ -60,6 +55,7 @@
         linear-gradient(to right, #649650, #73b05b 90%);
     -fx-background-radius: 50;
     -fx-font-family: "Impact";
+    -fx-padding: 15 30 15 30;
     -fx-font-size: 24px;
     -fx-text-fill: #EEE;
 }

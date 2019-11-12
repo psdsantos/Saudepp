@@ -25,7 +25,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#loadCadastro_ConsultaView" prefHeight="25.0" prefWidth="236.0" text="Prosseguir">
+            <Button mnemonicParsing="false" onAction="#loadCadastro_ConsultaView" prefHeight="25.0" prefWidth="236.0" styleClass="primary_blue" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
@@ -55,7 +55,7 @@
                </font>
             </Label>
             <TextField disable="true" editable="false" />
-            <Button mnemonicParsing="false" onAction="#loadAtualizar_ConsultaView" prefHeight="25.0" prefWidth="242.0" text="Prosseguir">
+            <Button mnemonicParsing="false" onAction="#loadAtualizar_ConsultaView" prefHeight="25.0" prefWidth="242.0" styleClass="primary_blue" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
@@ -88,7 +88,7 @@
                </VBox.margin>
             </Label>
             <TextField disable="true" editable="false" />
-            <Button fx:id="btn_delete" mnemonicParsing="false" prefHeight="37.0" prefWidth="162.0" text="Deletar">
+            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="162.0" styleClass="danger" text="Deletar">
                <font>
                   <Font size="16.0" />
                </font>
@@ -115,7 +115,7 @@
             </Label>
             <HBox>
                <children>
-                  <Button mnemonicParsing="false" >
+                  <Button mnemonicParsing="false">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -131,16 +131,17 @@
                   </TextField>
                </children>
             </HBox>
-            <TableView fx:id="tableFuncionario">
+            <TableView fx:id="tableConsulta">
                <columns>
-                  <TableColumn prefWidth="349.0" text="Nome" />
-                  <TableColumn minWidth="0.0" prefWidth="183.0" text="Código" />
+                  <TableColumn fx:id="dateCol" prefWidth="100.0" text="Data" />
+                  <TableColumn fx:id="pacCol" minWidth="0.0" prefWidth="247.0" text="Paciente" />
+                  <TableColumn fx:id="medCol" prefWidth="247.0" text="Médico" />
                </columns>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </TableView>
-            <Button styleClass="secondary" mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
+            <Button mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="25.0" prefWidth="322.0" styleClass="secondary" text="Retornar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

@@ -31,7 +31,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Saude++");
 			primaryStage.setResizable(true);
-			primaryStage.getIcons().add(new Image("model/resources/icon.png"));
+			primaryStage.getIcons().add(new Image("./model/resources/saudeIcon.png"));
 			primaryStage.show();
 			
 			DB.closeConnection();

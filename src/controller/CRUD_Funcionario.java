@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,7 +28,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import model.db.DB;
 import model.entities.Funcionario;
 import model.util.WindowsParam;
@@ -213,15 +211,6 @@ public class CRUD_Funcionario implements Initializable {
             stage.setHeight((int) (WindowsParam.getHeight()*1.1));
             stage.setResizable(true);
             stage.show();
-			
-            //NOT WORKING
-            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-
-        	    @Override
-        	    public void handle(WindowEvent paramT) {
-        	        refreshTableView();
-        	    }
-        	});
             
 		} catch (Exception e) {
 			e.printStackTrace();
