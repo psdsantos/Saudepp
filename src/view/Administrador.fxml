@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="administradorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Administrador">
+<BorderPane fx:id="administradorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Administrador">
    <top>
       <Label prefHeight="40.0" prefWidth="212.0" text="Administrador" BorderPane.alignment="CENTER_LEFT">
          <font>
@@ -20,21 +20,21 @@
       </Label>
    </top>
    <left>
-      <VBox fx:id="vbox" prefHeight="346.0" prefWidth="180.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="vbox" prefHeight="316.0" prefWidth="250.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="60.0" prefWidth="213.0" styleClass="primary" text="AGENDA">
+            <Button mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="60.0" prefWidth="268.0" styleClass="primary" text="AGENDA">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
             <Region prefHeight="30.0" prefWidth="212.0" />
-            <Button mnemonicParsing="false" onAction="#loadCRUD_FuncionarioView" prefHeight="60.0" prefWidth="212.0" styleClass="primary" text="FUNCIONÁRIOS">
+            <Button mnemonicParsing="false" onAction="#loadCRUD_FuncionarioView" prefHeight="60.0" prefWidth="270.0" styleClass="primary" text="FUNCIONÁRIOS">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
             <Region prefHeight="30.0" prefWidth="212.0" />
-            <Button mnemonicParsing="false" onAction="#loadLoginView" prefHeight="60.0" prefWidth="212.0" styleClass="secondary" text="LOG OUT">
+            <Button mnemonicParsing="false" onAction="#loadLoginView" prefHeight="60.0" prefWidth="338.0" styleClass="secondary" text="LOG OUT">
                <font>
                   <Font size="14.0" />
                </font>

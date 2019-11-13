@@ -194,12 +194,12 @@
                   <MaskedTextField fx:id="crm" disable="true" mask="#########" />
                   <HBox prefHeight="37.0" prefWidth="445.0">
                      <children>
-                        <Button styleClass="primary_blue" mnemonicParsing="false" onAction="#saveData" prefHeight="37.0" prefWidth="150.0" text="Salvar">
+                        <Button mnemonicParsing="false" onAction="#saveData" prefHeight="37.0" prefWidth="150.0" styleClass="primary" text="Salvar">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button styleClass="danger" mnemonicParsing="false" onAction="#closeView" prefHeight="37.0" prefWidth="150.0" text="Cancelar">
+                        <Button mnemonicParsing="false" onAction="#closeView" prefHeight="37.0" prefWidth="150.0" styleClass="danger" text="Cancelar">
                            <font>
                               <Font size="16.0" />
                            </font>

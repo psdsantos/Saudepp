@@ -197,7 +197,7 @@
                   <MaskedTextField fx:id="crm" disable="true" mask="#########" />
                   <HBox prefHeight="37.0" prefWidth="445.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#updateData" prefHeight="37.0" prefWidth="150.0" styleClass="primary_blue" text="Salvar">
+                        <Button mnemonicParsing="false" onAction="#updateData" prefHeight="37.0" prefWidth="150.0" styleClass="primary" text="Salvar">
                            <font>
                               <Font size="16.0" />
                            </font>

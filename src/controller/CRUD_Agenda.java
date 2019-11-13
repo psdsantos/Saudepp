@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -24,6 +25,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.db.DB;
@@ -37,7 +40,7 @@ public class CRUD_Agenda implements Initializable {
 	@FXML
 	private BorderPane agendaPane;
 	@FXML
-	private DatePicker datePicker;
+	private DatePicker searchDate;
 	@FXML
 	private TableView<Consulta> tableConsulta;
     @FXML 
@@ -53,6 +56,7 @@ public class CRUD_Agenda implements Initializable {
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		DateHandling.toMilitaryFormat(searchDate);
 		
 		dateCol.setCellValueFactory(new PropertyValueFactory<>("data"));
 		pacCol.setCellValueFactory(new PropertyValueFactory<>("paciente")); 	
@@ -60,9 +64,28 @@ public class CRUD_Agenda implements Initializable {
 	                
 		refreshTableView();
 		
-		// TO DO 
-		//setGlobalEventHandler(); // ENTER TYPED          
+		setEnterTypedHandler(searchDate); 
+	}
+	
+	private void setEnterTypedHandler(Node root) {
+	    root.addEventHandler(KeyEvent.KEY_PRESSED, ev -> {
+	        if (ev.getCode() == KeyCode.ENTER) {
+	        	searchDate();
+	        	showPac();
+	        	ev.consume(); 
+	        }
+	    });
+	}
+	
+	@FXML
+	private void searchDate() {
 		
+		String search = searchDate.getValue().toString();
+		tableConsulta.getItems().stream().filter(item -> item.getData().toString().contains(search))
+		.findAny().ifPresent(item -> {
+			tableConsulta.getSelectionModel().select(item);
+			tableConsulta.scrollTo(item);
+	    });
 	}
 	
 	@FXML

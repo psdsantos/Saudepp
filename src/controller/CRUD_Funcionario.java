@@ -78,17 +78,7 @@ public class CRUD_Funcionario implements Initializable {
 	
 	@FXML
 	private void searchClick() {
-		/*//search by id
-		int searchId = Integer.parseInt(searchBar.getText());
-		tableFuncionario.getItems().stream().filter(item -> item.getCodFuncionario() == searchId).findAny()
-		.ifPresent(item -> {
-	        tableFuncionario.getSelectionModel().select(item);
-	        tableFuncionario.scrollTo(item);
-	         showCpf();
-	    });
-		*/
 		
-		//search by name
 		String searchName = searchBar.getText().toLowerCase();
 		tableFuncionario.getItems().stream().filter(item -> item.getNome().toLowerCase().startsWith(searchName))
 		.findAny().ifPresent(item -> {

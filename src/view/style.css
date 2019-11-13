@@ -48,14 +48,3 @@
     -fx-font-size: 24px;
     -fx-text-fill: #EEE;
 }
-
-.primary_blue {
-    -fx-background-color: 
-        #a0ada3,
-        linear-gradient(to right, #649650, #73b05b 90%);
-    -fx-background-radius: 50;
-    -fx-font-family: "Impact";
-    -fx-padding: 12 25 12 25;
-    -fx-font-size: 24px;
-    -fx-text-fill: #EEE;
-}
