@@ -199,7 +199,7 @@
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#closeView" prefHeight="37.0" prefWidth="150.0" styleClass="danger" text="Cancelar">
+                        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeView" prefHeight="37.0" prefWidth="150.0" styleClass="danger" text="Cancelar">
                            <font>
                               <Font size="16.0" />
                            </font>

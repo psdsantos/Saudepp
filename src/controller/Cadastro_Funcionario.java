@@ -105,7 +105,7 @@ public class Cadastro_Funcionario implements Initializable {
 				if(crm.getPlainText().length() < 4 || crm.getPlainText().length() > 9) throw new InvalidFieldSizeException();
 				columns.add("crm");
 				dados.add(crm.getPlainText());
-				DB.insertData("medico", columns, dados);
+				DB.insertData("funcionario", columns, dados);
 			}
 			
 			closeView();

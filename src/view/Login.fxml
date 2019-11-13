@@ -36,23 +36,17 @@
                   <Font name="Impact" size="20.0" />
                </font>
             </Label>
-            <PasswordField layoutX="14.0" layoutY="215.0" prefWidth="234.0">
+            <PasswordField fx:id="passField" layoutX="14.0" layoutY="215.0" prefWidth="234.0">
                <font>
                   <Font size="15.0" />
                </font>
             </PasswordField>
-            <TextField layoutX="14.0" layoutY="138.0" prefWidth="236.0">
+            <TextField fx:id="userField" layoutX="14.0" layoutY="138.0" prefWidth="236.0">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button layoutX="17.0" layoutY="271.0" mnemonicParsing="false" onAction="#loadAdministradorView" styleClass="primary" text="Login">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Label layoutX="154.0" layoutY="98.0" text="*pode logar sem nada " />
-            <Button layoutX="96.0" layoutY="271.0" mnemonicParsing="false" onAction="#loadAtendenteView" text="Login atendente">
+            <Button layoutX="17.0" layoutY="271.0" mnemonicParsing="false" onAction="#verifyLogin" styleClass="primary" text="Login">
                <font>
                   <Font size="16.0" />
                </font>
