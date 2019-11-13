@@ -1,6 +1,6 @@
 .root, #formulario {
     -fx-background-image: url("/model/resources/background.png");
-    -fx-background-size: cover;
+    -fx-background-size: stretch;
     -fx-background-repeat: no-repeat;   
     -fx-background-position: center center;
 }
@@ -12,13 +12,39 @@
 	-fx-background-position: 30%;
 }
 
-#btn_delete {
-	-fx-background-image: url("/model/resources/deleteIcon.png");
-	-fx-background-size: 20px;
-	-fx-background-repeat: no-repeat;
-	-fx-background-position: 20%;
-}
-
 .date-picker, .text-field {
 	-fx-font-size: 14px;
+}
+
+.secondary {
+    -fx-background-color: 
+        #a0ada3,
+        linear-gradient(to right, #777, #999);
+    -fx-background-radius: 50;
+    -fx-padding: 12 25 12 25;
+    -fx-font-family: "Impact";
+    -fx-font-size: 24px;
+    -fx-text-fill: #EEE;
+}
+
+.primary {
+    -fx-background-color: 
+        #a0ada3,
+        linear-gradient(to right, #649650, #6aa353 90%);
+    -fx-background-radius: 50;
+    -fx-font-family: "Impact";
+    -fx-padding: 12 25 12 25;
+    -fx-font-size: 24px;
+    -fx-text-fill: #EEE;
+}
+
+.danger {
+    -fx-background-color: 
+        #a0ada3,
+        linear-gradient(to right, #d10a0a, #f20f0f 90%);
+    -fx-background-radius: 50;
+    -fx-font-family: "Impact";
+    -fx-padding: 12 25 12 25;
+    -fx-font-size: 24px;
+    -fx-text-fill: #EEE;
 }

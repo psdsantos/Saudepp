@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -25,7 +26,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#loadCadastro_ConsultaView" prefHeight="25.0" prefWidth="236.0" text="Prosseguir">
+            <Button mnemonicParsing="false" onAction="#loadCadastro_ConsultaView" prefHeight="25.0" prefWidth="236.0" styleClass="primary" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
@@ -54,8 +55,8 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField disable="true" editable="false" />
-            <Button mnemonicParsing="false" onAction="#loadAtualizar_ConsultaView" prefHeight="25.0" prefWidth="242.0" text="Prosseguir">
+            <TextField fx:id="selectedPac1" disable="true" editable="false" />
+            <Button mnemonicParsing="false" onAction="#loadAtualizar_ConsultaView" prefHeight="25.0" prefWidth="242.0" styleClass="primary" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
@@ -87,8 +88,8 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <TextField disable="true" editable="false" />
-            <Button fx:id="btn_delete" mnemonicParsing="false" prefHeight="37.0" prefWidth="162.0" text="Deletar">
+            <TextField fx:id="selectedPac2" disable="true" editable="false" />
+            <Button mnemonicParsing="false" onAction="#deleteData" prefHeight="37.0" prefWidth="162.0" styleClass="danger" text="Deletar">
                <font>
                   <Font size="16.0" />
                </font>
@@ -115,7 +116,7 @@
             </Label>
             <HBox>
                <children>
-                  <Button mnemonicParsing="false" onAction="#onAction" onKeyTyped="#onEnter">
+                  <Button mnemonicParsing="false" onAction="#searchDate">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -124,23 +125,24 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <TextField prefWidth="509.0">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
+                  <DatePicker fx:id="searchDate" prefHeight="33.0" prefWidth="188.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </DatePicker>
                </children>
             </HBox>
-            <TableView fx:id="tableFuncionario">
+            <TableView fx:id="tableConsulta" onMouseClicked="#showPac">
                <columns>
-                  <TableColumn prefWidth="349.0" text="Nome" />
-                  <TableColumn minWidth="0.0" prefWidth="183.0" text="Código" />
+                  <TableColumn fx:id="dateCol" prefWidth="100.0" text="Data" />
+                  <TableColumn fx:id="pacCol" minWidth="0.0" prefWidth="247.0" text="Paciente" />
+                  <TableColumn fx:id="medCol" prefWidth="247.0" text="Médico" />
                </columns>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </TableView>
-            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
+            <Button mnemonicParsing="false" onAction="#loadAgendaView" prefHeight="25.0" prefWidth="322.0" styleClass="secondary" text="Retornar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

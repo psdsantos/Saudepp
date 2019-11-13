@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="cadastroFuncionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cadastro_Funcionario">
+<BorderPane fx:id="cadastroFuncionarioPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cadastro_Consulta">
    <center>
       <ScrollPane BorderPane.alignment="CENTER">
          <content>
@@ -32,10 +32,10 @@
                         <Insets bottom="30.0" />
                      </VBox.margin>
                   </Line>
-                  <TableView prefHeight="200.0" prefWidth="449.0">
+                  <TableView fx:id="pacTable" prefHeight="200.0" prefWidth="449.0">
                      <columns>
-                        <TableColumn minWidth="0.0" prefWidth="145.0" text="CPF" />
-                        <TableColumn prefWidth="303.0" text="Nome" />
+                        <TableColumn fx:id="cpfCol" minWidth="0.0" prefWidth="145.0" text="CPF" />
+                        <TableColumn fx:id="pacCol" prefWidth="303.0" text="Nome" />
                      </columns>
                   </TableView>
                   <Label text="Médico">
@@ -51,10 +51,10 @@
                         <Insets bottom="30.0" />
                      </VBox.margin>
                   </Line>
-                  <TableView prefHeight="200.0" prefWidth="449.0">
+                  <TableView fx:id="medTable" prefHeight="200.0" prefWidth="449.0">
                     <columns>
-                      <TableColumn prefWidth="147.0" text="CRM" />
-                      <TableColumn prefWidth="301.0" text="Nome" />
+                      <TableColumn fx:id="crmCol" prefWidth="147.0" text="CRM" />
+                      <TableColumn fx:id="medCol" prefWidth="301.0" text="Nome" />
                     </columns>
                   </TableView>
                   <Label text="Data">
@@ -70,15 +70,15 @@
                         <Insets bottom="30.0" />
                      </VBox.margin>
                   </Line>
-                  <DatePicker />
+                  <DatePicker fx:id="datePicker" />
                   <HBox prefHeight="37.0" prefWidth="445.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" text="Salvar">
+                        <Button mnemonicParsing="false" onAction="#saveData" prefHeight="37.0" prefWidth="150.0" styleClass="primary" text="Salvar">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeView" prefHeight="37.0" prefWidth="150.0" text="Cancelar">
+                        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeView" prefHeight="37.0" prefWidth="150.0" styleClass="danger" text="Cancelar">
                            <font>
                               <Font size="16.0" />
                            </font>

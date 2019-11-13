@@ -124,6 +124,13 @@ public class DB {
 		return query;
 	}
 	
+	public static ResultSet consultation(String table) throws SQLException {
+		Statement statement = getConnection().createStatement();
+		String sql = String.format("select %s.nome from %s where %s.cod%s = consulta.cod%s", table, table, table, table, table);
+		ResultSet query = statement.executeQuery(sql);
+		return query;
+	}
+	
 	public static void changeDateStyle(String dateStyle) throws SQLException {
 		Statement statement = getConnection().createStatement();
 		String sql = String.format("SET DATESTYLE TO %s", dateStyle);

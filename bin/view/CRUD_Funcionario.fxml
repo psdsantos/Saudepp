@@ -26,7 +26,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#loadCadastro_FuncionarioView" prefHeight="25.0" prefWidth="236.0" text="Prosseguir">
+            <Button mnemonicParsing="false" onAction="#loadCadastro_FuncionarioView" prefHeight="25.0" prefWidth="236.0" styleClass="primary" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
@@ -63,7 +63,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </MaskedTextField>
-            <Button mnemonicParsing="false" onAction="#loadAtualizar_FuncionarioView" prefHeight="25.0" prefWidth="242.0" text="Prosseguir">
+            <Button mnemonicParsing="false" onAction="#loadAtualizar_FuncionarioView" prefHeight="25.0" prefWidth="242.0" styleClass="primary" text="Prosseguir">
                <font>
                   <Font size="16.0" />
                </font>
@@ -103,7 +103,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </MaskedTextField>
-            <Button mnemonicParsing="false" onAction="#deleteData" prefHeight="37.0" prefWidth="162.0" text="Deletar">
+            <Button mnemonicParsing="false" onAction="#deleteData" prefHeight="37.0" prefWidth="162.0" styleClass="danger" text="Deletar">
                <font>
                   <Font size="16.0" />
                </font>
@@ -157,7 +157,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </TableView>
-            <Button fx:id="btn_return" mnemonicParsing="false" onAction="#loadAdministradorView" prefHeight="25.0" prefWidth="322.0" text="Retornar">
+            <Button mnemonicParsing="false" onAction="#loadAdministradorView" prefHeight="25.0" prefWidth="322.0" styleClass="secondary" text="Retornar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
