@@ -133,9 +133,17 @@ public class CRUD_Agenda implements Initializable {
 		while(rSet.next()) {
 			Consulta cons = new Consulta();
 			cons.setCodConsulta(Integer.parseInt(rSet.getString("codconsulta")));
-			cons.setPaciente(rSet.getString("paciente"));
+			ResultSet rSetConsultaPac = DB.consultation("paciente", rSet.getString("data"));
+			while(rSetConsultaPac.next()) {
+				cons.setPaciente(rSetConsultaPac.getString("nome"));
+			}
+			DB.closeResultSet(rSetConsultaPac);
 			cons.setData(DateHandling.toMilitaryFormat(rSet.getDate("data")));
-			cons.setMedico(rSet.getString("medico"));
+			ResultSet rSetConsultaFunc = DB.consultation("funcionario", rSet.getString("data"));
+			while(rSetConsultaFunc.next()) {
+				cons.setMedico(rSetConsultaFunc.getString("nome"));
+			}
+			DB.closeResultSet(rSetConsultaFunc);
 			obs.add(cons);
 		}
 		DB.closeResultSet(rSet);

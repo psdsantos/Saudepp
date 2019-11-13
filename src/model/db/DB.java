@@ -124,9 +124,10 @@ public class DB {
 		return query;
 	}
 	
-	public static ResultSet consultation(String table) throws SQLException {
+	public static ResultSet consultation(String table, String data) throws SQLException {
 		Statement statement = getConnection().createStatement();
-		String sql = String.format("select %s.nome from %s where %s.cod%s = consulta.cod%s", table, table, table, table, table);
+		String sql = String.format("select %s.nome from %s, consulta where %s.cod%s = consulta.cod%s", table, table, table, table, table);
+		sql += String.format(" and consulta.data = '%s'", data);
 		ResultSet query = statement.executeQuery(sql);
 		return query;
 	}

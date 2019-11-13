@@ -72,6 +72,7 @@ public class Cadastro_Consulta implements Initializable {
 			Paciente pac = new Paciente();
 			pac.setNome(rSet.getString("nome"));
 			pac.setCpf(rSet.getString("cpf"));
+			pac.setCodPaciente(Integer.parseInt(rSet.getString("codpaciente")));
 			obs.add(pac);
 		}
 		DB.closeResultSet(rSet);
@@ -85,6 +86,7 @@ public class Cadastro_Consulta implements Initializable {
 			Funcionario med = new Funcionario();
 			med.setNome(rSet.getString("nome"));
 			med.setCrm(rSet.getString("crm"));
+			med.setCodFuncionario(Integer.parseInt(rSet.getString("codfuncionario")));
 			if(med.getCrm() != null) obs.add(med);
 		}
 		DB.closeResultSet(rSet);
@@ -100,13 +102,13 @@ public class Cadastro_Consulta implements Initializable {
 			if(datePicker.getValue() == null) throw new InvalidFieldSizeException();
 
 			List<String> dados = new ArrayList<String>();
-			dados.add(pacTable.getSelectionModel().getSelectedItem().getNome());
-			dados.add(medTable.getSelectionModel().getSelectedItem().getNome());
+			dados.add(pacTable.getSelectionModel().getSelectedItem().getCodPaciente().toString());
+			dados.add(medTable.getSelectionModel().getSelectedItem().getCodFuncionario().toString());
 			dados.add(datePicker.getValue().toString());
 			
 			List<String> columns = new ArrayList<String>();
-			columns.add("paciente");
-			columns.add("medico");
+			columns.add("codpaciente");
+			columns.add("codfuncionario");
 			columns.add("data");
 			
 			DB.insertData("consulta", columns, dados);
