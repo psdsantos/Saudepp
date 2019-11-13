@@ -18,6 +18,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.db.DB;
 import model.exceptions.InvalidFieldSizeException;
+import model.util.DateHandling;
 import src.MaskedTextField;
 
 public class Cadastro_Paciente implements Initializable {
@@ -47,7 +48,7 @@ public class Cadastro_Paciente implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		DateHandling.toMilitaryFormat(dataNasc);
 	}
 	
 	public void setController(CRUD_Paciente controller) {

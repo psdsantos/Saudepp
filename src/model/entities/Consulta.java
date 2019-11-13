@@ -3,6 +3,8 @@ package model.entities;
 import java.util.Date;
 
 public class Consulta {
+	
+	private Integer codConsulta;
 	private String paciente;
 	private String medico;
 	private Date data;
@@ -16,6 +18,14 @@ public class Consulta {
 
 	public Consulta() {
 		super();
+	}
+
+	public Integer getCodConsulta() {
+		return codConsulta;
+	}
+
+	public void setCodConsulta(Integer codConsulta) {
+		this.codConsulta = codConsulta;
 	}
 
 	public String getPaciente() {

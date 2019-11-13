@@ -4,6 +4,7 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -14,9 +15,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -41,6 +46,10 @@ public class CRUD_Agenda implements Initializable {
     private TableColumn<Paciente, String> pacCol;
     @FXML 
     private TableColumn<Paciente, String> medCol;
+    @FXML 
+    private TextField selectedPac2;
+    @FXML 
+    private TextField selectedPac1;
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -56,7 +65,38 @@ public class CRUD_Agenda implements Initializable {
 		
 	}
 	
-	private void refreshTableView() {
+	@FXML
+	private void deleteData(ActionEvent event) throws SQLException {
+		
+		Consulta consulta = tableConsulta.getSelectionModel().getSelectedItem();
+		Integer id = consulta.getCodConsulta();
+		
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Confirmação");
+		alert.setHeaderText("Você tem certeze que deseja desmarcar a consulta selecionada?");
+		alert.setContentText("Paciente: " + consulta.getPaciente() + "\nMédico: " + consulta.getMedico() + 
+				"\nData: " + consulta.getData());
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == ButtonType.OK){
+			DB.deleteData("consulta", "codconsulta", id.toString());
+			
+			refreshTableView();
+		} 
+		
+	}
+	
+	@FXML
+	private void showPac() {
+		try {
+			Consulta consulta = tableConsulta.getSelectionModel().getSelectedItem();
+			String paciente = consulta.getPaciente();
+			selectedPac1.setText(paciente);
+			selectedPac2.setText(paciente);
+		} catch (Exception e) {
+		}
+	}
+	
+	public void refreshTableView() {
 		try {
 			tableConsulta.getItems().setAll(initList());
 		} catch (SQLException e) {
@@ -69,6 +109,7 @@ public class CRUD_Agenda implements Initializable {
 		ResultSet rSet = DB.showEntity("consulta");
 		while(rSet.next()) {
 			Consulta cons = new Consulta();
+			cons.setCodConsulta(Integer.parseInt(rSet.getString("codconsulta")));
 			cons.setPaciente(rSet.getString("paciente"));
 			cons.setData(DateHandling.toMilitaryFormat(rSet.getDate("data")));
 			cons.setMedico(rSet.getString("medico"));
@@ -83,7 +124,11 @@ public class CRUD_Agenda implements Initializable {
 		try {
 			
 			Parent root;
-			root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atualizar_Consulta.fxml").toUri().toURL());
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Atualizar_Consulta.fxml"));
+            root = loader.load();
+            Atualizar_Consulta controller = loader.<Atualizar_Consulta>getController();
+            controller.setController(this);
+            controller.initConsulta(tableConsulta.getSelectionModel().getSelectedItem());
             Stage stage = new Stage();
             stage.setTitle("Saúde ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
@@ -91,7 +136,14 @@ public class CRUD_Agenda implements Initializable {
             stage.setResizable(false);
             stage.show();
 			
-		} catch (Exception e) {
+		} catch (NullPointerException e) {
+	 		Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("AVISO");
+			alert.setHeaderText("Selecione ao menos 1 (uma) consulta na tabela.");
+			alert.showAndWait();
+			e.printStackTrace();
+			
+	 	} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -102,7 +154,10 @@ public class CRUD_Agenda implements Initializable {
 		try {
 			
 			Parent root;
-			root = FXMLLoader.<BorderPane>load(Paths.get("src/view/Cadastro_Consulta.fxml").toUri().toURL());
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Cadastro_Consulta.fxml"));
+            root = loader.load();
+            Cadastro_Consulta controller = loader.<Cadastro_Consulta>getController();
+            controller.setController(this);
             Stage stage = new Stage();
             stage.setTitle("Saúde ++");
             stage.getIcons().add(new Image("model/resources/saudeIcon.png"));
@@ -115,12 +170,13 @@ public class CRUD_Agenda implements Initializable {
 		}
 	}
 	
+	// VOLTAR
 	@FXML
-	private void loadAgendaView(ActionEvent event) { // VOLTAR
+	private void loadAgendaView(ActionEvent event) { 
 		try {
 			
 			BorderPane pane = new BorderPane();
-			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Agenda_Atendente.fxml").toUri().toURL());
+			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Atendente.fxml").toUri().toURL());
 			
 			agendaPane.getChildren().clear();
 			agendaPane.setCenter(pane);

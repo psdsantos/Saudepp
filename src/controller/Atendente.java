@@ -54,7 +54,7 @@ public class Atendente implements Initializable {
 	private void loadAgendaView(ActionEvent event) {
 		try {
 			BorderPane pane = new BorderPane();
-			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/Agenda_Atendente.fxml").toUri().toURL());
+			pane = FXMLLoader.<BorderPane>load(Paths.get("src/view/CRUD_Agenda.fxml").toUri().toURL());
 			
 			atendentePane.getChildren().clear();
 			atendentePane.setCenter(pane);
