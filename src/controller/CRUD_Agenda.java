@@ -78,6 +78,12 @@ public class CRUD_Agenda implements Initializable {
 	}
 	
 	@FXML
+	private void searchClick() {
+		searchDate();
+    	showPac();
+	}
+	
+	@FXML
 	private void searchDate() {
 		
 		String search = searchDate.getValue().toString();

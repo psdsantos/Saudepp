@@ -130,19 +130,18 @@
             </Label>
             <HBox>
                <children>
-                  <Button mnemonicParsing="false" onAction="#searchClick">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../model/resources/searchIcon.jpg" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <ImageView fitHeight="60.0" fitWidth="37.0" onMouseClicked="#searchClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../model/resources/searchIcon.png" />
+                     </image>
+                  </ImageView>
                   <TextField fx:id="searchBar" prefWidth="509.0">
                      <font>
                         <Font size="16.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
                   </TextField>
                </children>
             </HBox>
@@ -152,6 +151,9 @@
                   <TableColumn fx:id="codCol" editable="false" minWidth="0.0" prefWidth="84.0" text="Código" />
                   <TableColumn fx:id="cpfCol" editable="false" minWidth="0.0" prefWidth="127.0" text="CPF" />
                </columns>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </TableView>
             <Button mnemonicParsing="false" onAction="#loadAtendenteView" prefHeight="25.0" prefWidth="322.0" styleClass="secondary" text="Retornar">
                <font>

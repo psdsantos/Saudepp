@@ -113,10 +113,20 @@ public class Agenda_Admin implements Initializable {
 		ResultSet rSet = DB.showEntity("consulta");
 		while(rSet.next()) {
 			Consulta cons = new Consulta();
-			cons.setCodConsulta(Integer.parseInt(rSet.getString("codconsulta")));
-			cons.setPaciente(rSet.getString("paciente"));
+			cons.setCodConsulta(rSet.getInt("codconsulta"));
+			cons.setcodpaciente(rSet.getInt("codpaciente"));
+			ResultSet rSetConsultaPac = DB.consultation("paciente", rSet.getString("data"));
+			while(rSetConsultaPac.next()) {
+				cons.setPaciente(rSetConsultaPac.getString("nome"));
+			}
+			DB.closeResultSet(rSetConsultaPac);
 			cons.setData(DateHandling.toMilitaryFormat(rSet.getDate("data")));
-			cons.setMedico(rSet.getString("medico"));
+			ResultSet rSetConsultaFunc = DB.consultation("funcionario", rSet.getString("data"));
+			while(rSetConsultaFunc.next()) {
+				cons.setMedico(rSetConsultaFunc.getString("nome"));
+			}
+			cons.setData(DateHandling.toMilitaryFormat(rSet.getDate("data")));
+			cons.setcodmedico(rSet.getInt("codfuncionario"));
 			obs.add(cons);
 		}
 		DB.closeResultSet(rSet);

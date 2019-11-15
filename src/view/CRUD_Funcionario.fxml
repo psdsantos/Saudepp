@@ -130,19 +130,18 @@
             </Label>
             <HBox>
                <children>
-                  <Button mnemonicParsing="false" onAction="#searchClick">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../model/resources/searchIcon.jpg" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <ImageView fitHeight="60.0" fitWidth="37.0" onMouseClicked="#searchClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../model/resources/searchIcon.png" />
+                     </image>
+                  </ImageView>
                   <TextField fx:id="searchBar" prefWidth="509.0">
                      <font>
                         <Font size="16.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
                   </TextField>
                </children>
             </HBox>

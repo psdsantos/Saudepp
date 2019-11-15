@@ -16,6 +16,10 @@
 	-fx-font-size: 14px;
 }
 
+#loginImage {
+	-fx-background-radius: 30;
+}
+
 .secondary {
     -fx-background-color: 
         #a0ada3,

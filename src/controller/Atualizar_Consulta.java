@@ -73,6 +73,7 @@ public class Atualizar_Consulta implements Initializable {
 		ResultSet rSet = DB.showEntity("Paciente");
 		while(rSet.next()) {
 			Paciente pac = new Paciente();
+			pac.setCodPaciente(rSet.getInt("codpaciente"));
 			pac.setNome(rSet.getString("nome"));
 			pac.setCpf(rSet.getString("cpf"));
 			obs.add(pac);
@@ -86,6 +87,7 @@ public class Atualizar_Consulta implements Initializable {
 		ResultSet rSet = DB.showEntity("Funcionario");
 		while(rSet.next()) {
 			Funcionario med = new Funcionario();
+			med.setCodFuncionario(rSet.getInt("codfuncionario"));
 			med.setNome(rSet.getString("nome"));
 			med.setCrm(rSet.getString("crm"));
 			if(med.getCrm() != null) obs.add(med);
@@ -111,6 +113,7 @@ public class Atualizar_Consulta implements Initializable {
 				break;
 			}
 		}
+		
 		datePicker.setValue(DateHandling.toLocalDate(consulta.getData()));
     }
 	
@@ -123,13 +126,13 @@ public class Atualizar_Consulta implements Initializable {
 			if(datePicker.getValue() == null) throw new InvalidFieldSizeException();
 
 			List<String> dados = new ArrayList<String>();
-			dados.add(pacTable.getSelectionModel().getSelectedItem().getNome());
-			dados.add(medTable.getSelectionModel().getSelectedItem().getNome());
+			dados.add(pacTable.getSelectionModel().getSelectedItem().getCodPaciente().toString());
+			dados.add(medTable.getSelectionModel().getSelectedItem().getCodFuncionario().toString());
 			dados.add(datePicker.getValue().toString());
 			
 			List<String> columns = new ArrayList<String>();
-			columns.add("paciente");
-			columns.add("medico");
+			columns.add("codpaciente");
+			columns.add("codfuncionario");
 			columns.add("data");
 			
 			DB.updateData("consulta", columns, dados, "codconsulta", consulta.getCodConsulta().toString());

@@ -33,7 +33,7 @@ public class DB {
 	}
 	private static Properties loadProperties() {
 		Properties props = new Properties();
-		try (FileInputStream fs = new FileInputStream("src/model/db/db.properties")) {
+		try (FileInputStream fs = new FileInputStream("src/model/db/dbpedro.properties")) {
 			props.load(fs);
 		} catch (IOException e) {
 			e.printStackTrace();
