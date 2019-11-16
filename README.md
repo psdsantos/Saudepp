@@ -1,5 +1,5 @@
 # Saudepp
-Sistema para gerenciamento de uma clínica médica. Trabalho apresentado como conclusão das disciplinas Programação II e Banco de Dados do curso técnico de Informático do Instituto Federal de Sergipe - Campus Aracaju.
+Sistema para gerenciamento de uma clínica médica. Trabalho apresentado como conclusão das disciplinas Programação II e Banco de Dados do curso técnico de Informática do Instituto Federal de Sergipe - Campus Aracaju.
 
 tela em andamento:
 
